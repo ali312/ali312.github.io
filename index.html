@@ -1,111 +1,399 @@
- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>2048 vahits</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anton CGI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+:root {
+  --bg: #0a0a0a;
+  --fg: #e8e8e8;
+  --dim: #555;
+  --accent: #888;
+}
 
-  <link href="style/main.css" rel="stylesheet" type="text/css">
-  <link rel="shortcut icon" href="favicon.png">
-  <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+html {
+  font-size: 16px;
+}
 
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
-  <meta property="og:title" content="Another Vahit Game!" />
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="600">
-  <meta property="og:image:height" content="600">
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 300;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.55;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 2rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 4rem;
+}
+
+h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(3rem, 10vw, 5rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 1rem;
+  animation: fadeUp 1s ease-out;
+}
+
+.tagline {
+  font-size: 0.875rem;
+  color: var(--dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: fadeUp 1s ease-out 0.15s both;
+}
+
+.bio {
+  margin-bottom: 4rem;
+  animation: fadeUp 1s ease-out 0.3s both;
+}
+
+.bio p {
+  font-size: 1rem;
+  color: var(--accent);
+  max-width: 50ch;
+}
+
+.bio p + p {
+  margin-top: 1.25rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  animation: fadeUp 1s ease-out 0.45s both;
+}
+
+.links a {
+  color: var(--fg);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--dim);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.links a:hover {
+  color: var(--fg);
+}
+
+.links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.footer {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  font-size: 0.7rem;
+  color: var(--dim);
+  letter-spacing: 0.1em;
+  animation: fadeIn 1s ease-out 0.6s both;
+}
+
+.coordinates {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  font-size: 0.7rem;
+  color: var(--dim);
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+  animation: fadeIn 1s ease-out 0.6s both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 3rem 1.5rem;
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .footer,
+  .coordinates {
+    position: static;
+    margin-top: 4rem;
+  }
+
+  .coordinates {
+    margin-top: 0.5rem;
+  }
+}
+
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+  </style>
 </head>
 <body>
+  <canvas id="canvas"></canvas>
+
   <div class="container">
-    <div class="heading">
-      <h1 class="title"><span style="color:red">2</span><span style="color:#00FF00">0</span><span style="color:blue">4</span><span style="color:#00FFFF">8</span>VAHITS
-      </h1>
-      <div class="scores-container">
-        <div class="score-container">0</div>
-        <div class="best-container">0</div>
-      </div>
-    </div>
+    <header class="header">
+      <h1>Anton CGI</h1>
+      <p class="tagline">Designer &amp; Engineer</p>
+    </header>
+<section class="bio">
+  <p>Building the future at Termius by day. Exploring ideas that won't let me sleep by night.</p>
+</section>
 
-    <div class="game-container">
-      <div class="doge-says">
-        <p></p>
-      </div>
-      <div class="info">
-        <!-- <div class="hide-info"><a>HIDE</a></div> -->
-       <p>Use your arrow keys or swipe to combine similar Vahits and score points! </p>
-       <p>Unlock all 11 vahits to win!</p>       
-       <p> Vahit-ified by   <a href="http://vk.com/sapphire_id" target="_blank">Anton Light.</a>
-       <p> 2048 Created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a></p> 
-       <p>Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
-    </p>
-      </div>
-      <div class="game-message">
-        <p></p>
-        <div class="lower">
-	        <a class="keep-playing-button">Keep going</a>
-          <a class="retry-button">Try again</a>
-        </div>
-      </div>
+<nav class="links">
+  <a href="https://twitter.com/AntonCGI" target="_blank" rel="noopener">Twitter</a>
+  <a href="https://medium.com/@anton.cgi" target="_blank" rel="noopener">Blog</a>
+  <a href="https://github.com/ali312" target="_blank" rel="noopener">GitHub</a>
+</nav>
 
-      <div class="grid-container">
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-      </div>
-
-      <div class="tile-container">
-
-      </div>
-    </div>
-    <p class="game-explanation">Use your arrow keys or swipe to combine similar Vahits and score points!</p>
-    <div class="info-container">
-      <a class="show-info">INFO</a>
-    </div>
-  </div>
-  <div class="footer">
   </div>
 
-  <script src="js/animframe_polyfill.js"></script>
-  <script src="js/keyboard_input_manager.js"></script>
-  <script src="js/html_actuator.js"></script>
-  <script src="js/grid.js"></script>
-  <script src="js/tile.js"></script>
-  <script src="js/local_score_manager.js"></script>
-  <script src="js/game_manager.js"></script>
-  <script src="js/application.js"></script>
+  <div class="footer">© 2025</div>
+  <div class="coordinates" id="coords">0.000 / 0.000</div>
+
   <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    // Procedural flow field animation
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const coords = document.getElementById('coords');
 
-    ga('create', 'UA-49053101-1', 'doge2048.com');
-    ga('send', 'pageview');
+    let width, height;
+    let particles = [];
+    const particleCount = 1000;
+    const noiseScale = 0.003;
+    let time = 0;
+    let lastTime = 0;
+    const targetFPS = 60;
+    const targetFrameTime = 1000 / targetFPS;
 
+    // Simplex noise implementation (simplified)
+    const F2 = 0.5 * (Math.sqrt(3) - 1);
+    const G2 = (3 - Math.sqrt(3)) / 6;
+    const perm = new Uint8Array(512);
+    const grad2 = [[1,1],[-1,1],[1,-1],[-1,-1],[1,0],[-1,0],[0,1],[0,-1]];
+    
+    for (let i = 0; i < 256; i++) perm[i] = i;
+    for (let i = 255; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [perm[i], perm[j]] = [perm[j], perm[i]];
+    }
+    for (let i = 0; i < 256; i++) perm[i + 256] = perm[i];
+
+    function noise2D(x, y) {
+      const s = (x + y) * F2;
+      const i = Math.floor(x + s);
+      const j = Math.floor(y + s);
+      const t = (i + j) * G2;
+      const X0 = i - t;
+      const Y0 = j - t;
+      const x0 = x - X0;
+      const y0 = y - Y0;
+      
+      const i1 = x0 > y0 ? 1 : 0;
+      const j1 = x0 > y0 ? 0 : 1;
+      
+      const x1 = x0 - i1 + G2;
+      const y1 = y0 - j1 + G2;
+      const x2 = x0 - 1 + 2 * G2;
+      const y2 = y0 - 1 + 2 * G2;
+      
+      const ii = i & 255;
+      const jj = j & 255;
+      
+      let n = 0;
+      
+      let t0 = 0.5 - x0*x0 - y0*y0;
+      if (t0 >= 0) {
+        const gi = perm[ii + perm[jj]] % 8;
+        t0 *= t0;
+        n += t0 * t0 * (grad2[gi][0] * x0 + grad2[gi][1] * y0);
+      }
+      
+      let t1 = 0.5 - x1*x1 - y1*y1;
+      if (t1 >= 0) {
+        const gi = perm[ii + i1 + perm[jj + j1]] % 8;
+        t1 *= t1;
+        n += t1 * t1 * (grad2[gi][0] * x1 + grad2[gi][1] * y1);
+      }
+      
+      let t2 = 0.5 - x2*x2 - y2*y2;
+      if (t2 >= 0) {
+        const gi = perm[ii + 1 + perm[jj + 1]] % 8;
+        t2 *= t2;
+        n += t2 * t2 * (grad2[gi][0] * x2 + grad2[gi][1] * y2);
+      }
+      
+      return 70 * n;
+    }
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = 0;
+        this.vy = 0;
+        this.life = Math.random() * 250 + 120;
+        this.maxLife = this.life;
+      }
+
+      update(dt) {
+        const angle = noise2D(this.x * noiseScale, this.y * noiseScale + time) * Math.PI * 4;
+        
+        this.vx += Math.cos(angle) * 0.15 * dt;
+        this.vy += Math.sin(angle) * 0.15 * dt;
+        
+        const friction = Math.pow(0.95, dt);
+        this.vx *= friction;
+        this.vy *= friction;
+        
+        this.x += this.vx * dt;
+        this.y += this.vy * dt;
+        
+        this.life -= dt;
+        
+        if (
+          this.life <= 0 ||
+          this.x < 0 ||
+          this.x > width ||
+          this.y < 0 ||
+          this.y > height
+        ) {
+          this.reset();
+        }
+      }
+
+      draw() {
+        const alpha = (this.life / this.maxLife) * 0.2;
+        ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+        ctx.fillRect(this.x, this.y, 1.5, 1.5);
+      }
+    }
+
+    function resize() {
+      const dpr = window.devicePixelRatio || 1;
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      ctx.scale(dpr, dpr);
+      
+      // Reset particles on resize
+      particles = [];
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+      
+      // Reset timing to prevent delta spike
+      lastTime = 0;
+    }
+
+    function animate(currentTime) {
+      if (!lastTime) lastTime = currentTime;
+      const deltaTime = Math.min(currentTime - lastTime, 100); // Cap at 100ms to prevent jumps
+      lastTime = currentTime;
+      
+      const dt = deltaTime / targetFrameTime;
+      const fadeAlpha = 1 - Math.pow(1 - 0.04, dt);
+      ctx.fillStyle = `rgba(10, 10, 10, ${fadeAlpha})`;
+      ctx.fillRect(0, 0, width, height);
+      
+      particles.forEach(p => {
+        p.update(dt);
+        p.draw();
+      });
+      
+      time += 0.0003 * dt;
+      requestAnimationFrame(animate);
+    }
+
+    // Mouse tracking for coordinates
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / width).toFixed(3);
+      const y = (e.clientY / height).toFixed(3);
+      coords.textContent = `${x} / ${y}`;
+    });
+
+    window.addEventListener('resize', resize);
+    resize();
+    requestAnimationFrame(animate);
   </script>
-  <div id="fb-root"></div>
-  </body>
+
+</body>
 </html>
