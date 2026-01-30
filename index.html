@@ -219,10 +219,12 @@ h1 {
 
   </div>
 
-  <div class="footer">© 2025</div>
+  <div class="footer">© <span id="year"></span></div>
   <div class="coordinates" id="coords">0.000 / 0.000</div>
 
   <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
     // Procedural flow field animation
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
@@ -232,6 +234,7 @@ h1 {
     let particles = [];
     const particleCount = 1000;
     const noiseScale = 0.003;
+    const maxTrailPoints = 120;
     let time = 0;
     let lastTime = 0;
     const targetFPS = 60;
@@ -309,6 +312,7 @@ h1 {
         this.vy = 0;
         this.life = Math.random() * 250 + 120;
         this.maxLife = this.life;
+        this.trail = [];
       }
 
       update(dt) {
@@ -323,6 +327,11 @@ h1 {
         
         this.x += this.vx * dt;
         this.y += this.vy * dt;
+
+        this.trail.push({ x: this.x, y: this.y });
+        if (this.trail.length > maxTrailPoints) {
+          this.trail.shift();
+        }
         
         this.life -= dt;
         
@@ -338,9 +347,15 @@ h1 {
       }
 
       draw() {
-        const alpha = (this.life / this.maxLife) * 0.2;
-        ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-        ctx.fillRect(this.x, this.y, 1.5, 1.5);
+        const lifeAlpha = (this.life / this.maxLife) * 0.35;
+        const count = this.trail.length;
+        for (let i = 0; i < count; i++) {
+          const point = this.trail[i];
+          const t = (i + 1) / count;
+          const alpha = t * lifeAlpha;
+          ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+          ctx.fillRect(point.x, point.y, 1.5, 1.5);
+        }
       }
     }
 
@@ -368,10 +383,8 @@ h1 {
       if (!lastTime) lastTime = currentTime;
       const deltaTime = Math.min(currentTime - lastTime, 100); // Cap at 100ms to prevent jumps
       lastTime = currentTime;
-      
       const dt = deltaTime / targetFrameTime;
-      const fadeAlpha = 1 - Math.pow(1 - 0.04, dt);
-      ctx.fillStyle = `rgba(10, 10, 10, ${fadeAlpha})`;
+      ctx.fillStyle = 'rgba(10, 10, 10, 1)';
       ctx.fillRect(0, 0, width, height);
       
       particles.forEach(p => {
