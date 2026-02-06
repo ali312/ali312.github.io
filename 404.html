@@ -24,7 +24,12 @@
       transform: translate(-50%, -50%);
       z-index: 0;
       pointer-events: none;
-      animation: fadeIn 1.2s ease-out;
+      animation: fadeToGhost 1.2s ease-out;
+    }
+
+    @keyframes fadeToGhost {
+      from { opacity: 0; }
+      to   { opacity: 0.12; }
     }
 
     .lost-message {
