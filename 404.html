@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Anton CGI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .error-code {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(6rem, 20vw, 12rem);
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      line-height: 0.85;
+      color: var(--fg);
+      opacity: 0.12;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      pointer-events: none;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .lost-message {
+      font-size: 0.875rem;
+      color: var(--dim);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: fadeUp 1s ease-out 0.15s both;
+    }
+
+    .lost-detail {
+      margin-top: 1.5rem;
+      margin-bottom: 3rem;
+      animation: fadeUp 1s ease-out 0.3s both;
+    }
+
+    .lost-detail p {
+      font-size: 1rem;
+      color: var(--accent);
+      max-width: 42ch;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.3s ease;
+      animation: fadeUp 1s ease-out 0.45s both;
+    }
+
+    .back-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--dim);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .back-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .not-found .container {
+      position: relative;
+    }
+  </style>
+</head>
+<body class="not-found">
+  <canvas id="canvas"></canvas>
+
+  <span class="error-code" aria-hidden="true">404</span>
+
+  <div class="container">
+    <header class="header">
+      <h1>Lost</h1>
+      <p class="lost-message">Page not found</p>
+    </header>
+
+    <div class="lost-detail">
+      <p>This page drifted into the void. The particles couldn't find it either.</p>
+    </div>
+
+    <a href="/" class="back-link">← Return home</a>
+  </div>
+
+  <div class="footer">© <span id="year"></span></div>
+  <div class="coordinates" id="coords">0.000 / 0.000</div>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="assets/js/flow-field.js"></script>
+</body>
+</html>
