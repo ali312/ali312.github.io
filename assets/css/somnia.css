@@ -1,0 +1,497 @@
+/* ==========================================================================
+   Somnia — Dream Journal Landing Page
+   Nocturnal dreamscape theme with aurora-like particle backdrop
+   ========================================================================== */
+
+/* ---------- Theme Overrides ---------- */
+
+.somnia-page {
+  --bg: #101228;
+  --fg: #F1EEF7;
+  --dim: #7B7895;
+  --accent: #A89AD6;
+  --highlight: #7FDADC;
+  --purple: #8E71D6;
+  --deep: #201B3B;
+  scroll-behavior: smooth;
+}
+
+.somnia-page ::selection {
+  background: var(--purple);
+  color: var(--fg);
+}
+
+/* Canvas vignette overlay */
+.somnia-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse 80% 70% at 50% 40%,
+    transparent 25%,
+    rgba(16, 18, 40, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
+.somnia-page canvas {
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+.s-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2.5rem;
+  background: rgba(16, 18, 40, 0.28);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(155, 142, 200, 0.05);
+  animation: fadeIn 1s ease-out;
+}
+
+.s-nav__back {
+  color: var(--dim);
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.s-nav__back:hover {
+  color: var(--fg);
+}
+
+.s-nav__link {
+  color: var(--dim);
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 3px;
+}
+
+.s-nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.s-nav__link:hover {
+  color: var(--accent);
+}
+
+.s-nav__link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ==========================================================================
+   Main Content Layer
+   ========================================================================== */
+
+.s-main {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.s-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  padding: 7rem 2rem 2rem;
+  gap: 3rem;
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.s-hero__content {
+  flex: 1 1 55%;
+  max-width: 520px;
+}
+
+.s-hero__phone {
+  flex: 0 0 auto;
+}
+
+.s-hero__eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+  animation: fadeUp 1s ease-out both;
+}
+
+.s-hero__title {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(5rem, 17vw, 11rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(
+    135deg,
+    var(--accent) 0%,
+    var(--highlight) 45%,
+    var(--purple) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeUp 1s ease-out 0.15s both;
+}
+
+.s-hero__tagline {
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  color: var(--dim);
+  letter-spacing: 0.04em;
+  line-height: 1.9;
+  max-width: 30ch;
+  margin: 0 0 2.25rem;
+  animation: fadeUp 1s ease-out 0.3s both;
+}
+
+.s-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--fg);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  border: 1px solid rgba(155, 142, 200, 0.15);
+  border-radius: 100px;
+  transition: all 0.45s cubic-bezier(0.19, 1, 0.22, 1);
+  animation: fadeUp 1s ease-out 0.45s both;
+  background: transparent;
+}
+
+.s-hero__cta:hover {
+  border-color: var(--accent);
+  background: rgba(124, 92, 191, 0.14);
+  box-shadow: 0 0 40px rgba(124, 92, 191, 0.12);
+  transform: translateY(-2px);
+}
+
+.s-hero__apple-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.s-hero__phone {
+  margin-top: 0;
+  position: relative;
+  animation: fadeUp 1.2s ease-out 0.6s both;
+}
+
+.s-hero__phone img {
+  position: relative;
+  max-width: min(80vw, 240px);
+  height: auto;
+  border-radius: 28px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* ==========================================================================
+   Screenshots (static triptych)
+   ========================================================================== */
+
+.s-screens {
+  padding: 3.5rem 2rem 1.5rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.s-screens__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.s-screens__title {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.s-screens__sub {
+  font-size: 0.78rem;
+  color: var(--dim);
+  letter-spacing: 0.03em;
+}
+
+.s-screens__frame {
+  border: 1px solid rgba(155, 142, 200, 0.06);
+  border-radius: 20px;
+  padding: 1.5rem;
+  background: rgba(26, 21, 48, 0.12);
+}
+
+.s-screens__grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.s-screens__card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(26, 21, 48, 0.25);
+  border: 1px solid rgba(155, 142, 200, 0.06);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  width: 190px;
+}
+
+.s-screens__card[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.s-screens__card[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.s-screens__card[data-reveal]:nth-child(2).revealed {
+  transition-delay: 0.12s;
+}
+
+.s-screens__card[data-reveal]:nth-child(3).revealed {
+  transition-delay: 0.24s;
+}
+
+.s-screens__card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.s-screens__card:hover {
+  transform: translateY(-6px);
+}
+
+/* ==========================================================================
+   Features
+   ========================================================================== */
+
+.s-features {
+  padding: 4.5rem 2rem 6rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.s-features__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+
+.s-features__item {
+  padding: 2.25rem 1.75rem;
+  border: 1px solid rgba(155, 142, 200, 0.06);
+  border-radius: 18px;
+  background: rgba(26, 21, 48, 0.18);
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Scroll reveal: hidden by default */
+.s-features__item[data-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.s-features__item[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.9s ease, transform 0.9s ease,
+              border-color 0.5s ease, background 0.5s ease;
+}
+
+.s-features__item[data-reveal]:nth-child(2).revealed {
+  transition-delay: 0.12s;
+}
+
+.s-features__item[data-reveal]:nth-child(3).revealed {
+  transition-delay: 0.24s;
+}
+
+.s-features__item:hover {
+  border-color: rgba(155, 142, 200, 0.14);
+  background: rgba(26, 21, 48, 0.5);
+  transform: translateY(-4px);
+}
+
+.s-features__number {
+  font-size: 0.68rem;
+  color: var(--highlight);
+  letter-spacing: 0.18em;
+  display: block;
+  margin-bottom: 1.75rem;
+  opacity: 0.7;
+}
+
+.s-features__heading {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--fg);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.s-features__desc {
+  font-size: 0.85rem;
+  color: var(--dim);
+  line-height: 1.75;
+}
+
+/* Contact section removed for minimal layout */
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.s-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem;
+  border-top: 1px solid rgba(155, 142, 200, 0.05);
+  font-size: 0.7rem;
+  color: var(--dim);
+  letter-spacing: 0.1em;
+}
+
+.s-footer__privacy {
+  color: var(--dim);
+  text-decoration: none;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  transition: color 0.3s ease;
+}
+
+.s-footer__privacy:hover {
+  color: var(--accent);
+}
+
+/* ==========================================================================
+   Coordinates Override
+   ========================================================================== */
+
+.somnia-page .coordinates {
+  z-index: 101;
+}
+
+.somnia-page .footer {
+  display: none;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .s-screens__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .s-features__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .s-nav {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .s-nav__link {
+    margin-left: auto;
+  }
+
+  .s-hero {
+    padding: 7rem 1.5rem 2.5rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .s-hero__content {
+    max-width: none;
+  }
+
+  .s-hero__phone img {
+    max-width: 85vw;
+    border-radius: 22px;
+  }
+
+  .s-screens {
+    padding: 3.5rem 1.5rem 1.5rem;
+  }
+
+  .s-features {
+    padding: 5rem 1.5rem;
+  }
+
+  .s-features__item {
+    padding: 2rem 1.75rem;
+  }
+
+  .s-footer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .somnia-page .coordinates {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 1.5rem 2rem;
+  }
+}
