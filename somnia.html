@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Somnia — Dream Journal by Anton CGI</title>
-  <meta name="description" content="Unlock your inner world, one dream at a time. Journal your dreams, get AI-powered analysis, and discover recurring patterns.">
+  <meta name="description" content="Explore the language of your subconscious. Reflect on your dreams, spot recurring patterns, and unlock AI-powered insights with Somnia.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/somnia.css">
   <link rel="icon" href="assets/favicon_io/favicon.ico" sizes="48x48">
@@ -20,79 +19,68 @@
 <body class="somnia-page">
   <canvas id="canvas"></canvas>
 
-  <!-- Navigation -->
   <nav class="s-nav">
     <a href="/" class="s-nav__back">&larr; Anton CGI</a>
-    <a href="#features" class="s-nav__link">Features</a>
+    <div class="s-nav__links">
+      <a href="#features" class="s-nav__link">Capabilities</a>
+    </div>
   </nav>
 
   <main class="s-main">
-
-    <!-- ====== Hero ====== -->
     <section class="s-hero">
       <div class="s-hero__content">
         <p class="s-hero__eyebrow">Dream Journal</p>
         <h1 class="s-hero__title">Somnia</h1>
-        <p class="s-hero__tagline">Unlock your inner world,<br>one dream at a time</p>
-        <a href="https://apps.apple.com/us/app/dream-journal-somnia/id6748606227"
-           class="s-hero__cta" target="_blank" rel="noopener">
-          <svg class="s-hero__apple-icon" viewBox="0 0 24 24" fill="currentColor">
+        <p class="s-hero__tagline">Explore the language of your subconscious.</p>
+        <p class="s-hero__subcopy">
+          Reflect on your dreams each morning in a calm, personal space. Track emotions, people, and places, then uncover recurring patterns over time.
+        </p>
+        <a href="https://apps.apple.com/us/app/dream-journal-somnia/id6748606227" class="s-hero__cta" target="_blank" rel="noopener">
+          <svg class="s-hero__apple-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
           </svg>
           Download on the App Store
         </a>
       </div>
-      <div class="s-hero__phone">
-        <img src="https://framerusercontent.com/images/KXFybojhXFiVsVnaXhzOkfqPQ.png?scale-down-to=1024"
-             alt="Somnia app — dream journal interface" loading="eager">
-      </div>
-    </section>
 
-    <!-- ====== Screenshots ====== -->
-    <section class="s-screens">
-      <div class="s-screens__header">
-        <p class="s-screens__title">Screenshots</p>
-        <p class="s-screens__sub">A calm interface for sleep‑to‑wake moments.</p>
-      </div>
-      <div class="s-screens__frame">
-        <div class="s-screens__grid">
-          <div class="s-screens__card" data-reveal>
-            <img src="https://framerusercontent.com/images/16nnWmXbXHYnc05gjYlIWMyeU.png?scale-down-to=2048" alt="Dream entry screen" loading="lazy">
-          </div>
-          <div class="s-screens__card" data-reveal>
-            <img src="https://framerusercontent.com/images/wKGocsbWjyeWvNhwDNzxCCwA.png?scale-down-to=2048" alt="Dream analysis screen" loading="lazy">
-          </div>
+      <div class="s-hero__media" data-reveal>
+        <div class="s-hero__card">
+          <img src="https://framerusercontent.com/images/KXFybojhXFiVsVnaXhzOkfqPQ.png?scale-down-to=1024" alt="Somnia dream journal screen" loading="eager">
         </div>
       </div>
     </section>
 
-    <!-- ====== Features ====== -->
     <section class="s-features" id="features">
+      <div class="s-section-head">
+        <p class="s-section-head__eyebrow">Capabilities</p>
+        <h2 class="s-section-head__title">Built for your morning ritual</h2>
+      </div>
       <div class="s-features__grid">
-        <div class="s-features__item" data-reveal>
+        <article class="s-features__item" data-reveal>
           <span class="s-features__number">01</span>
-          <h3 class="s-features__heading">Track</h3>
-          <p class="s-features__desc">Keep track of your dreams with a beautiful, intuitive journal designed for the moments between sleep and waking.</p>
-        </div>
-        <div class="s-features__item" data-reveal>
+          <h3 class="s-features__heading">Reflect &amp; Remember</h3>
+          <p class="s-features__desc">Capture what you felt, who appeared, and where the dream unfolded while the details are still fresh.</p>
+        </article>
+        <article class="s-features__item" data-reveal>
           <span class="s-features__number">02</span>
-          <h3 class="s-features__heading">Analyze</h3>
-          <p class="s-features__desc">Get powerful analysis with the power of AI. Understand the symbols, emotions, and themes in your dream world.</p>
-        </div>
-        <div class="s-features__item" data-reveal>
+          <h3 class="s-features__heading">Spot Patterns</h3>
+          <p class="s-features__desc">Track recurring symbols, emotional tones, and trends across nights to reveal what your subconscious repeats.</p>
+        </article>
+        <article class="s-features__item" data-reveal>
           <span class="s-features__number">03</span>
-          <h3 class="s-features__heading">Discover</h3>
-          <p class="s-features__desc">Discover recurring patterns across nights, weeks, and months. See your subconscious mind mapped over time.</p>
-        </div>
+          <h3 class="s-features__heading">AI-Powered Insights</h3>
+          <p class="s-features__desc">Get gentle interpretations and symbolism guidance powered by AI when you unlock premium features.</p>
+        </article>
       </div>
     </section>
-
   </main>
 
-  <!-- Footer -->
   <footer class="s-footer">
     <span>&copy; <span id="year"></span> Somnia</span>
-    <a href="#" class="s-footer__privacy">Privacy Policy &amp; Terms of Service</a>
+    <div class="s-footer__links">
+      <a href="somnia-privacy.html" class="s-footer__privacy">Privacy Policy</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener" class="s-footer__privacy">Terms of Service</a>
+    </div>
   </footer>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>

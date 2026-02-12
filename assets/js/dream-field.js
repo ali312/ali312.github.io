@@ -1,6 +1,6 @@
 /**
- * Dreamy bokeh field
- * Soft drifting orbs with gentle parallax and subtle glow
+ * Somnia atmospheric field
+ * Twilight gradient + drifting glassy orbs
  */
 
 (function () {
@@ -10,20 +10,25 @@
   const ctx = canvas.getContext('2d');
   const coords = document.getElementById('coords');
 
-  let width, height, dpr;
+  let width;
+  let height;
+  let dpr;
   let orbs = [];
   let lastTime = 0;
   const targetFPS = 60;
   const targetFrameTime = 1000 / targetFPS;
 
+  const bgTop = [19, 20, 32];    // #131420
+  const bgBottom = [33, 29, 73]; // #211D49
+
   const palette = [
-    [168, 154, 214], // lavender
-    [142, 113, 214], // violet
-    [127, 218, 220], // teal
-    [108, 126, 192], // cool blue
+    [145, 126, 252], // primary violet
+    [111, 123, 255], // mysterious blue
+    [163, 233, 196], // success mint
+    [145, 201, 255], // info blue
   ];
 
-  const orbCount = 22;
+  const orbCount = 18;
 
   function randomBetween(min, max) {
     return min + Math.random() * (max - min);
@@ -31,23 +36,32 @@
 
   function createOrb() {
     const base = palette[Math.floor(Math.random() * palette.length)];
-    const radius = randomBetween(90, 220);
-    const speed = randomBetween(0.08, 0.18);
-    const life = randomBetween(800, 1600);
+    const radius = randomBetween(80, 230);
+    const speed = randomBetween(0.06, 0.16);
+    const life = randomBetween(900, 1800);
+
     return {
       x: Math.random() * width,
       y: Math.random() * height,
-      radius,
-      driftX: randomBetween(-0.8, 0.8),
-      driftY: randomBetween(-0.6, 0.6),
-      speed,
+      radius: radius,
+      driftX: randomBetween(-0.6, 0.6),
+      driftY: randomBetween(-0.45, 0.45),
+      speed: speed,
       phase: Math.random() * Math.PI * 2,
       color: base,
-      alpha: randomBetween(0.06, 0.18),
-      life,
+      alpha: randomBetween(0.05, 0.14),
+      life: life,
       maxLife: life,
-      phaseSpeed: randomBetween(0.0002, 0.0006),
+      phaseSpeed: randomBetween(0.00018, 0.00045)
     };
+  }
+
+  function drawBackground() {
+    const gradient = ctx.createLinearGradient(0, 0, 0, height);
+    gradient.addColorStop(0, 'rgb(' + bgTop.join(',') + ')');
+    gradient.addColorStop(1, 'rgb(' + bgBottom.join(',') + ')');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, width, height);
   }
 
   function resize() {
@@ -61,33 +75,26 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     orbs = [];
-    for (let i = 0; i < orbCount; i++) {
+    for (let i = 0; i < orbCount; i += 1) {
       orbs.push(createOrb());
     }
     lastTime = 0;
   }
 
   function drawOrb(orb, time) {
-    const wobble = Math.sin(time * (0.0004 + orb.phaseSpeed) + orb.phase) * 16;
-    const x = orb.x + wobble;
-    const y = orb.y + Math.cos(time * (0.00035 + orb.phaseSpeed) + orb.phase) * 14;
+    const wobbleX = Math.sin(time * (0.00032 + orb.phaseSpeed) + orb.phase) * 18;
+    const wobbleY = Math.cos(time * (0.00028 + orb.phaseSpeed) + orb.phase) * 15;
+    const x = orb.x + wobbleX;
+    const y = orb.y + wobbleY;
 
-    const gradient = ctx.createRadialGradient(
-      x,
-      y,
-      0,
-      x,
-      y,
-      orb.radius
-    );
-
-    const [r, g, b] = orb.color;
+    const gradient = ctx.createRadialGradient(x, y, 0, x, y, orb.radius);
+    const color = orb.color;
     const lifeRatio = orb.life / orb.maxLife;
     const fade = Math.sin(Math.PI * lifeRatio);
     const alpha = orb.alpha * fade;
 
-    gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${alpha})`);
-    gradient.addColorStop(0.6, `rgba(${r}, ${g}, ${b}, ${alpha * 0.35})`);
+    gradient.addColorStop(0, 'rgba(' + color[0] + ',' + color[1] + ',' + color[2] + ',' + alpha + ')');
+    gradient.addColorStop(0.58, 'rgba(' + color[0] + ',' + color[1] + ',' + color[2] + ',' + (alpha * 0.32) + ')');
     gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
     ctx.fillStyle = gradient;
@@ -103,11 +110,10 @@
     const dt = deltaTime / targetFrameTime;
 
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = 'rgba(16, 18, 40, 1)';
-    ctx.fillRect(0, 0, width, height);
+    drawBackground();
 
     ctx.globalCompositeOperation = 'lighter';
-    for (let i = 0; i < orbs.length; i++) {
+    for (let i = 0; i < orbs.length; i += 1) {
       const orb = orbs[i];
       orb.x += orb.driftX * orb.speed * dt;
       orb.y += orb.driftY * orb.speed * dt;
@@ -126,11 +132,9 @@
       drawOrb(orb, currentTime);
     }
     ctx.globalCompositeOperation = 'source-over';
-
     requestAnimationFrame(animate);
   }
 
-  /* Mouse tracking for coordinates display */
   if (coords) {
     document.addEventListener('mousemove', function (e) {
       const x = (e.clientX / width).toFixed(3);
@@ -143,8 +147,7 @@
   resize();
   requestAnimationFrame(animate);
 
-  /* Scroll-triggered reveal */
-  var observer = new IntersectionObserver(function (entries) {
+  const observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('revealed');
