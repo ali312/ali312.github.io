@@ -1,0 +1,456 @@
+/* ==========================================================================
+   PicMatic — Interval Camera Landing Page
+   Lens-inspired dark theme with floating dust-particle backdrop
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Fugaz One';
+  src: url('../fonts/FugazOne-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Theme tokens ---------- */
+
+.picmatic-page {
+  --bg-top: #0F0D1A;
+  --bg-bottom: #100E32;
+  --fg: #F5F7FA;
+  --dim: #8B8EA3;
+  --label: #D4D7DC;
+  --accent: #6683DB;
+  --lens-blue: #3A6BFF;
+  --lens-purple: #6B3CFF;
+  --grad-start: #6850CA;
+  --grad-end: #64E0FA;
+  --border: rgba(100, 105, 140, 0.12);
+  --panel: rgba(22, 18, 48, 0.25);
+  --deep-black: #0B0B0F;
+  scroll-behavior: smooth;
+}
+
+.picmatic-page ::selection {
+  background: var(--lens-purple);
+  color: var(--fg);
+}
+
+/* Vignette overlay */
+.picmatic-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse 80% 70% at 50% 40%,
+    transparent 20%,
+    rgba(11, 11, 15, 0.5) 100%
+  );
+  pointer-events: none;
+}
+
+.picmatic-page canvas {
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+.p-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2.5rem;
+  background: rgba(15, 13, 26, 0.35);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  animation: fadeIn 1s ease-out;
+}
+
+.p-nav__back {
+  color: var(--dim);
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.p-nav__back:hover {
+  color: var(--fg);
+}
+
+.p-nav__link {
+  color: var(--dim);
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 3px;
+}
+
+.p-nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.p-nav__link:hover {
+  color: var(--accent);
+}
+
+.p-nav__link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ==========================================================================
+   Main
+   ========================================================================== */
+
+.p-main {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.p-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 7rem 2rem 4rem;
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.p-hero__eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  animation: fadeUp 1s ease-out both;
+}
+
+.p-hero__title {
+  font-family: 'Fugaz One', cursive;
+  font-size: clamp(4.5rem, 16vw, 9rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  padding-bottom: 0.05em;
+  margin-bottom: 1.75rem;
+  background: linear-gradient(
+    70deg,
+    var(--grad-start) 0%,
+    var(--grad-end) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeUp 1s ease-out 0.15s both;
+}
+
+.p-hero__tagline {
+  font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+  color: var(--dim);
+  letter-spacing: 0.04em;
+  line-height: 1.9;
+  max-width: 36ch;
+  margin: 0 auto 2.75rem;
+  animation: fadeUp 1s ease-out 0.3s both;
+}
+
+.p-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--fg);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.85rem 2.25rem;
+  border: 1px solid rgba(100, 105, 140, 0.2);
+  border-radius: 100px;
+  transition: all 0.45s cubic-bezier(0.19, 1, 0.22, 1);
+  animation: fadeUp 1s ease-out 0.45s both;
+  background: transparent;
+}
+
+.p-hero__cta:hover {
+  border-color: var(--accent);
+  background: rgba(58, 107, 255, 0.1);
+  box-shadow: 0 0 50px rgba(58, 107, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.p-hero__apple-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Features
+   ========================================================================== */
+
+.p-features {
+  padding: 2rem 2rem 6rem;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.p-features__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.p-features__item {
+  padding: 2.25rem 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--panel);
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.p-features__item[data-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.p-features__item[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.9s ease, transform 0.9s ease,
+              border-color 0.5s ease, background 0.5s ease;
+}
+
+.p-features__item[data-reveal]:nth-child(2).revealed {
+  transition-delay: 0.12s;
+}
+
+.p-features__item[data-reveal]:nth-child(3).revealed {
+  transition-delay: 0.24s;
+}
+
+.p-features__item:hover {
+  border-color: rgba(100, 105, 140, 0.22);
+  background: rgba(22, 18, 48, 0.55);
+  transform: translateY(-4px);
+}
+
+.p-features__number {
+  font-size: 0.68rem;
+  color: var(--grad-end);
+  letter-spacing: 0.18em;
+  display: block;
+  margin-bottom: 1.75rem;
+  opacity: 0.7;
+}
+
+.p-features__heading {
+  font-family: 'Fugaz One', cursive;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--fg);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.p-features__desc {
+  font-size: 0.85rem;
+  color: var(--dim);
+  line-height: 1.75;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.p-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.7rem;
+  color: var(--dim);
+  letter-spacing: 0.1em;
+}
+
+.p-footer__links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.p-footer__link {
+  color: var(--dim);
+  text-decoration: none;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  transition: color 0.3s ease;
+}
+
+.p-footer__link:hover {
+  color: var(--accent);
+}
+
+/* ==========================================================================
+   Legal pages (ToS, Privacy)
+   ========================================================================== */
+
+.p-legal {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 8rem 2rem 4rem;
+}
+
+.p-legal__title {
+  font-family: 'Fugaz One', cursive;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  padding-bottom: 0.1em;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(70deg, var(--grad-start), var(--grad-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.p-legal__updated {
+  font-size: 0.75rem;
+  color: var(--dim);
+  letter-spacing: 0.08em;
+  margin-bottom: 3rem;
+}
+
+.p-legal h2 {
+  font-family: 'Fugaz One', cursive;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--fg);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.p-legal p,
+.p-legal ul {
+  font-size: 0.88rem;
+  color: var(--label);
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+.p-legal ul {
+  padding-left: 1.25rem;
+}
+
+.p-legal li {
+  margin-bottom: 0.4rem;
+}
+
+.p-legal a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.p-legal a:hover {
+  color: var(--grad-end);
+}
+
+/* ==========================================================================
+   Overrides for base styles
+   ========================================================================== */
+
+.picmatic-page .coordinates {
+  z-index: 101;
+}
+
+.picmatic-page .footer {
+  display: none;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .p-features__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .p-nav {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .p-hero {
+    padding: 7rem 1.5rem 3rem;
+  }
+
+  .p-features {
+    padding: 2rem 1.5rem 5rem;
+  }
+
+  .p-features__item {
+    padding: 2rem 1.5rem;
+  }
+
+  .p-footer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .p-footer__links {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .p-legal {
+    padding: 7rem 1.5rem 3rem;
+  }
+
+  .picmatic-page .coordinates {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 1.5rem 2rem;
+  }
+}
