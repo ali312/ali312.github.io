@@ -3,12 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PicMatic — Interval Camera by Anton CGI</title>
-  <meta name="description" content="Automated interval photography. Set your interval, frame the shot, and capture every moment without running back to your phone.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <title>PicMatic - Hands-Free Interval Photos</title>
+  <meta name="description" content="PicMatic is an iPhone interval camera for creators, travelers, couples, and solo shooters who want natural photos without rushing back to the shutter.">
   <link rel="stylesheet" href="assets/css/picmatic.css">
   <link rel="icon" href="assets/favicon_io/favicon.ico" sizes="48x48">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
@@ -17,67 +13,114 @@
   <link rel="manifest" href="assets/favicon_io/site.webmanifest">
 </head>
 <body class="picmatic-page">
-  <canvas id="canvas"></canvas>
-
-  <!-- Navigation -->
-  <nav class="p-nav">
-    <a href="/" class="p-nav__back">&larr; Anton CGI</a>
-    <a href="#features" class="p-nav__link">Features</a>
+  <nav class="pm-nav">
+    <div class="pm-shell pm-nav__inner">
+      <a href="/" class="pm-brand">Anton CGI</a>
+      <div class="pm-nav__links">
+        <a href="#workflow" class="pm-nav__link">How it works</a>
+      </div>
+    </div>
   </nav>
 
-  <main class="p-main">
-
-    <!-- ====== Hero ====== -->
-    <section class="p-hero">
-      <p class="p-hero__eyebrow">Interval Camera</p>
-      <h1 class="p-hero__title">PicMatic</h1>
-      <p class="p-hero__tagline">Capture every moment without<br>running back to your phone</p>
-      <div class="p-hero__actions">
-        <a href="https://apps.apple.com/app/picmatic" class="p-hero__cta" target="_blank" rel="noopener">
-          <svg class="p-hero__apple-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-          </svg>
-          Download on the App Store
-        </a>
-        <a href="mailto:ali312@yandex.ru?subject=PicMatic%20Feedback&amp;body=Hi%20Anton%2C%0A%0AI%20have%20feedback%20about%20PicMatic%3A%0A" class="p-hero__cta p-hero__cta--contact">
-          Contact
-        </a>
-      </div>
-    </section>
-
-    <!-- ====== Features ====== -->
-    <section class="p-features" id="features">
-      <div class="p-features__grid">
-        <div class="p-features__item" data-reveal>
-          <span class="p-features__number">01</span>
-          <h3 class="p-features__heading">Auto-Capture</h3>
-          <p class="p-features__desc">Set your interval, frame the shot, and let PicMatic do the rest. No need to touch your phone between captures.</p>
+  <main>
+    <section class="pm-hero">
+      <div class="pm-shell pm-hero__grid">
+        <div class="pm-hero__copy" data-reveal>
+          <p class="pm-kicker">PicMatic for iPhone</p>
+          <h1 class="pm-display">Stay in the frame.</h1>
+          <p class="pm-lead">Set the phone down, choose an interval, and let PicMatic keep taking photos while you stay in the moment.</p>
+          <div class="pm-hero__actions">
+            <a href="https://apps.apple.com/nz/app/picmatic-self-timer-camera/id6759094233" class="pm-button" target="_blank" rel="noopener">Download on the App Store</a>
+          </div>
+          <div class="pm-proofline">
+            <span>No sign-in</span>
+            <span>On-device capture</span>
+            <span>Works offline</span>
+          </div>
         </div>
-        <div class="p-features__item" data-reveal>
-          <span class="p-features__number">02</span>
-          <h3 class="p-features__heading">Full Control</h3>
-          <p class="p-features__desc">Custom intervals and multiple aspect ratios — 4:3, 16:9, and 1:1. Dial in the exact setup for every shoot.</p>
-        </div>
-        <div class="p-features__item" data-reveal>
-          <span class="p-features__number">03</span>
-          <h3 class="p-features__heading">One-Time Purchase</h3>
-          <p class="p-features__desc">No subscriptions. Unlock everything with a single lifetime purchase and own it forever.</p>
+
+        <div class="pm-hero__visual" data-reveal>
+          <div class="pm-phone">
+            <div class="pm-phone__screen">
+              <span class="pm-phone__label">PicMatic</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <section class="pm-section pm-section--workflow" id="workflow">
+      <div class="pm-shell pm-story">
+        <div class="pm-story__intro" data-reveal>
+          <p class="pm-kicker">How it works</p>
+          <h2 class="pm-title">Three steps, then you're in the shot.</h2>
+        </div>
+
+        <div class="pm-steps">
+          <article class="pm-step" data-reveal>
+            <span class="pm-step__index">01</span>
+            <h3>Place the phone</h3>
+            <p>Set it on a tripod, table, or ledge and frame the shot.</p>
+          </article>
+          <article class="pm-step" data-reveal>
+            <span class="pm-step__index">02</span>
+            <h3>Pick the interval</h3>
+            <p>Choose how many seconds between each photo.</p>
+          </article>
+          <article class="pm-step" data-reveal>
+            <span class="pm-step__index">03</span>
+            <h3>Walk away</h3>
+            <p>PicMatic keeps shooting while you stay in the scene.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pm-section pm-section--cta">
+      <div class="pm-shell">
+        <div class="pm-cta" data-reveal>
+          <h2 class="pm-title">A simple interval camera for iPhone.</h2>
+          <div class="pm-cta__actions">
+            <a href="https://apps.apple.com/nz/app/picmatic-self-timer-camera/id6759094233" class="pm-button" target="_blank" rel="noopener">Download PicMatic</a>
+            <a href="mailto:ali312@yandex.ru?subject=PicMatic%20Feedback&amp;body=Hi%20Anton%2C%0A%0AI%20have%20feedback%20about%20PicMatic%3A%0A" class="pm-button pm-button--ghost">Contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="p-footer">
-    <span>&copy; <span id="year"></span> PicMatic</span>
-    <div class="p-footer__links">
-      <a href="PicMatic-tos.html" class="p-footer__link">Terms of Service</a>
-      <a href="PicMatic-privacy.html" class="p-footer__link">Privacy Policy</a>
+  <footer class="pm-footer">
+    <div class="pm-shell pm-footer__inner">
+      <span>&copy; <span id="year"></span> PicMatic</span>
+      <div class="pm-footer__links">
+        <a href="PicMatic-privacy.html" class="pm-footer__link">Privacy Policy</a>
+        <a href="PicMatic-tos.html" class="pm-footer__link">Terms of Service</a>
+      </div>
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script src="assets/js/particle-field.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.body.classList.add('js-enabled');
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('[data-reveal]').forEach(function (el) {
+        el.classList.add('revealed');
+      });
+    } else {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.18 });
+
+      document.querySelectorAll('[data-reveal]').forEach(function (el) {
+        observer.observe(el);
+      });
+    }
+  </script>
 </body>
 </html>
