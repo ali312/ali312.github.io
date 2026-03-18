@@ -49,28 +49,27 @@ body {
 }
 
 .picmatic-page {
-  --pm-bg: #f5f0e8;
-  --pm-surface: rgba(251, 247, 241, 0.76);
-  --pm-surface-strong: rgba(252, 248, 243, 0.92);
-  --pm-line: rgba(77, 55, 39, 0.1);
-  --pm-line-strong: rgba(77, 55, 39, 0.16);
-  --pm-text: #241a12;
-  --pm-text-soft: #68584c;
-  --pm-text-faint: #88786c;
-  --pm-accent: #8c5c3b;
-  --pm-accent-strong: #69452c;
-  --pm-olive: #7b8260;
+  --pm-bg: #faf9f8;
+  --pm-surface: rgba(250, 248, 255, 0.76);
+  --pm-surface-strong: rgba(250, 248, 255, 0.92);
+  --pm-line: rgba(0, 0, 0, 0.07);
+  --pm-line-strong: rgba(0, 0, 0, 0.1);
+  --pm-text: #1a1a1a;
+  --pm-text-soft: #6b7280;
+  --pm-text-faint: #9ca3af;
+  --pm-accent: #7c3aed;
+  --pm-accent-strong: #6d28d9;
   --pm-radius-sm: 0.75rem;
   --pm-radius-md: 1.25rem;
   min-height: 100vh;
-  background: linear-gradient(180deg, #f8f3ec 0%, var(--pm-bg) 100%);
+  background: linear-gradient(180deg, #fefefe 0%, var(--pm-bg) 100%);
   color: var(--pm-text);
   font-family: 'Satoshi', sans-serif;
   line-height: 1.6;
 }
 
 .picmatic-page ::selection {
-  background: rgba(155, 95, 45, 0.18);
+  background: rgba(124, 58, 237, 0.15);
   color: var(--pm-text);
 }
 
@@ -166,8 +165,8 @@ main {
   padding: 14px 24px;
   border: 1px solid transparent;
   border-radius: var(--pm-radius-sm);
-  background: #35251a;
-  color: #f7efe6;
+  background: #1a1a1a;
+  color: #f8f8f8;
   text-decoration: none;
   font-size: 0.84rem;
   font-weight: 600;
@@ -177,19 +176,19 @@ main {
 
 .pm-button:hover,
 .pm-button:focus-visible {
-  background: #4a3526;
+  background: #333333;
 }
 
 .pm-button--ghost {
   background: transparent;
   color: var(--pm-text);
-  border-color: var(--pm-line-strong);
+  border-color: rgba(0, 0, 0, 0.12);
 }
 
 .pm-button--ghost:hover,
 .pm-button--ghost:focus-visible {
-  background: rgba(255, 248, 240, 0.72);
-  border-color: rgba(95, 67, 44, 0.22);
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.18);
 }
 
 /* ---- Typography ---- */
@@ -293,7 +292,7 @@ main {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--pm-olive);
+  background: var(--pm-accent);
   transform: translateY(-50%);
 }
 
@@ -302,42 +301,9 @@ main {
   justify-content: center;
 }
 
-/* ---- Phone visual ---- */
-
-.pm-phone {
-  width: min(100%, 16rem);
-}
-
-.pm-phone__screen {
-  position: relative;
-  aspect-ratio: 9 / 18;
-  border-radius: 2.2rem;
-  border: 1px solid rgba(90, 63, 42, 0.12);
-  background: linear-gradient(170deg, #ede4d8 0%, #ddd2c4 100%);
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-}
-
-.pm-phone__screen::before {
-  content: '';
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 64px;
-  height: 5px;
-  border-radius: 999px;
-  background: rgba(77, 55, 39, 0.1);
-}
-
-.pm-phone__label {
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--pm-text-faint);
-  opacity: 0.5;
+.pm-hero__img {
+  width: min(100%, 14rem);
+  border-radius: var(--pm-radius-md);
 }
 
 /* ---- Workflow / Steps ---- */
@@ -391,6 +357,36 @@ main {
   margin: 10px 0 0;
   font-size: 0.94rem;
   line-height: 1.7;
+}
+
+/* ---- Screenshot gallery ---- */
+
+.pm-section--gallery {
+  padding: 0;
+}
+
+.pm-gallery {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  width: min(100%, 1080px);
+  margin: 0 auto;
+  padding: 0 28px 24px;
+}
+
+.pm-gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.pm-gallery__img {
+  flex: 0 0 auto;
+  height: min(60vh, 420px);
+  width: auto;
+  border-radius: var(--pm-radius-md);
+  scroll-snap-align: start;
 }
 
 /* ---- CTA ---- */
@@ -460,7 +456,7 @@ main {
 .pm-legal-card,
 .pm-legal-cta {
   position: relative;
-  border: 1px solid rgba(90, 63, 42, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.07);
   border-radius: var(--pm-radius-md);
   background: var(--pm-surface);
 }
@@ -537,7 +533,7 @@ main {
 .pm-button:focus-visible,
 .pm-text-link:focus-visible,
 .pm-legal a:focus-visible {
-  outline: 2px solid rgba(109, 60, 24, 0.5);
+  outline: 2px solid rgba(124, 58, 237, 0.5);
   outline-offset: 3px;
 }
 
@@ -572,8 +568,8 @@ main {
     justify-content: center;
   }
 
-  .pm-phone {
-    width: min(100%, 13rem);
+  .pm-hero__img {
+    width: min(100%, 12rem);
   }
 }
 
@@ -589,6 +585,14 @@ main {
 
   .pm-title {
     font-size: clamp(1.65rem, 8vw, 2.4rem);
+  }
+
+  .pm-gallery {
+    padding: 0 18px 20px;
+  }
+
+  .pm-gallery__img {
+    height: min(50vh, 340px);
   }
 
   .pm-legal,
