@@ -4,28 +4,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
   <title>Anton CGI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/home.css">
   <link rel="icon" href="assets/favicon_io/favicon.ico" sizes="48x48">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
   <link rel="manifest" href="assets/favicon_io/site.webmanifest">
 </head>
-<body>
-  <canvas id="canvas"></canvas>
+<body class="home">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <canvas id="canvas" aria-hidden="true"></canvas>
 
-  <div class="container">
+  <main class="container" id="main-content">
     <header class="header">
       <h1>Anton CGI</h1>
-      <p class="tagline">Designer &amp; Engineer</p>
     </header>
 
     <section class="bio">
-      <p>Building the future at Termius by day. Exploring ideas that won't let me sleep by night.</p>
+      <p>Design engineer at Termius, indie hacker.</p>
     </section>
 
     <section class="projects">
@@ -43,14 +45,14 @@
     </section>
 
     <nav class="links">
-      <a href="https://twitter.com/AntonCGI" target="_blank" rel="noopener">Twitter</a>
-      <a href="https://medium.com/@anton.cgi" target="_blank" rel="noopener">Blog</a>
-      <a href="https://github.com/ali312" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://twitter.com/AntonCGI" target="_blank" rel="noopener noreferrer">Twitter</a>
+      <a href="https://medium.com/@anton.cgi" target="_blank" rel="noopener noreferrer">Blog</a>
+      <a href="https://github.com/ali312" target="_blank" rel="noopener noreferrer">GitHub</a>
     </nav>
-  </div>
+  </main>
 
   <div class="footer">© <span id="year"></span></div>
-  <div class="coordinates" id="coords">0.000 / 0.000</div>
+  <div class="coordinates" id="coords" aria-hidden="true">0.000 / 0.000</div>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="assets/js/flow-field.js"></script>

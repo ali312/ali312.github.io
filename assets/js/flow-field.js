@@ -9,12 +9,20 @@
 
   const ctx = canvas.getContext('2d');
   const coords = document.getElementById('coords');
+  const calmBackground =
+    document.body.classList.contains('home') ||
+    document.body.classList.contains('not-found');
+
+  const staticBackground =
+    typeof window.matchMedia === 'function' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let width, height;
   let particles = [];
-  const particleCount = 1000;
+  const particleCount = calmBackground ? 480 : 1000;
   const noiseScale = 0.003;
-  const maxTrailPoints = 120;
+  const maxTrailPoints = calmBackground ? 72 : 120;
+  const trailAlphaScale = calmBackground ? 0.22 : 0.35;
   let time = 0;
   let lastTime = 0;
   const targetFPS = 60;
@@ -132,7 +140,7 @@
     }
 
     draw() {
-      const lifeAlpha = (this.life / this.maxLife) * 0.35;
+      const lifeAlpha = (this.life / this.maxLife) * trailAlphaScale;
       const count = this.trail.length;
       for (let i = 0; i < count; i++) {
         const point = this.trail[i];
@@ -155,11 +163,19 @@
     canvas.height = height * dpr;
     canvas.style.width = width + 'px';
     canvas.style.height = height + 'px';
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.scale(dpr, dpr);
 
     particles = [];
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
+    if (!staticBackground) {
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    if (staticBackground) {
+      ctx.fillStyle = 'rgba(10, 10, 10, 1)';
+      ctx.fillRect(0, 0, width, height);
     }
 
     lastTime = 0;
@@ -194,5 +210,7 @@
 
   window.addEventListener('resize', resize);
   resize();
-  requestAnimationFrame(animate);
+  if (!staticBackground) {
+    requestAnimationFrame(animate);
+  }
 })();
