@@ -5,51 +5,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a0a0a">
-  <title>Anton CGI</title>
+  <meta name="description" content="Marcus Screensaver for macOS — a screensaver that shows random quotes from Stoic philosophers such as Marcus Aurelius, Epictetus, and Seneca.">
+  <title>Marcus Screensaver — Anton CGI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/home.css">
+  <link rel="stylesheet" href="assets/css/marcus-screensaver.css">
   <link rel="icon" href="assets/favicon_io/favicon.ico" sizes="48x48">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
   <link rel="manifest" href="assets/favicon_io/site.webmanifest">
 </head>
-<body class="home">
+<body class="marcus-screensaver">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <canvas id="canvas" aria-hidden="true"></canvas>
 
-  <main class="container" id="main-content">
-    <header class="header">
-      <h1>Anton CGI</h1>
-    </header>
-
-    <section class="bio">
-      <p>Design engineer at Termius, indie hacker.</p>
-    </section>
-
-    <section class="projects">
-      <h2>Projects</h2>
-      <div class="project-groups">
-        <div class="project-group">
-          <p class="group-title">Apps</p>
-          <ul class="project-list">
-            <li><a href="PicMatic.html">PicMatic</a><span class="project-meta">iOS · Interval camera</span></li>
-            <li><a href="KiwiDrive.html">KiwiDrive</a><span class="project-meta">iOS · NZ road code</span></li>
-            <li><a href="somnia.html">Somnia</a><span class="project-meta">iOS · Dream journal</span></li>
-            <li><a href="Marcus-Screensaver.html">Marcus Screensaver</a><span class="project-meta">macOS · Stoic screensaver</span></li>
+  <main class="container marcus-container" id="main-content">
+    <section class="marcus-hero" aria-labelledby="marcus-title">
+      <div class="marcus-copy">
+        <h1 id="marcus-title">Marcus Screensaver</h1>
+        <div class="marcus-lede">
+          <p class="marcus-subtitle">A macOS screensaver with quotes from Stoic philosophers:</p>
+          <ul class="marcus-philosophers">
+            <li>Marcus Aurelius</li>
+            <li>Epictetus</li>
+            <li>Seneca</li>
           </ul>
         </div>
+        <div class="marcus-actions">
+          <a href="Files/Marcus-Screensaver-1.0.dmg" class="marcus-download" download="Marcus-Screensaver-1.0.dmg">Download for macOS</a>
+        </div>
+        <a href="/" class="marcus-back">← Home</a>
+      </div>
+      <div class="marcus-visual">
+        <img src="assets/images/Marcus.png" width="640" alt="Classical marble bust of Marcus Aurelius" class="marcus-img">
       </div>
     </section>
-
-    <nav class="links">
-      <a href="https://twitter.com/AntonCGI" target="_blank" rel="noopener noreferrer">Twitter</a>
-      <a href="https://medium.com/@anton.cgi" target="_blank" rel="noopener noreferrer">Blog</a>
-      <a href="https://github.com/ali312" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </nav>
   </main>
 
   <div class="footer">© <span id="year"></span></div>

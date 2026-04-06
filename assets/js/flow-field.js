@@ -11,7 +11,8 @@
   const coords = document.getElementById('coords');
   const calmBackground =
     document.body.classList.contains('home') ||
-    document.body.classList.contains('not-found');
+    document.body.classList.contains('not-found') ||
+    document.body.classList.contains('marcus-screensaver');
 
   const staticBackground =
     typeof window.matchMedia === 'function' &&

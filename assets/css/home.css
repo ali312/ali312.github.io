@@ -2,7 +2,8 @@
    Type scale: modular steps + shared tracking (typeset) */
 
 body.home,
-body.not-found {
+body.not-found,
+body.marcus-screensaver {
   --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
   --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
 
@@ -31,12 +32,14 @@ body.not-found {
 
 body.home h1,
 body.home .projects h2,
-body.not-found h1 {
+body.not-found h1,
+body.marcus-screensaver h1 {
   font-family: var(--font-display);
   text-rendering: optimizeLegibility;
 }
 
-body.home h1 {
+body.home h1,
+body.marcus-screensaver h1 {
   line-height: var(--leading-heading);
   text-wrap: balance;
 }
@@ -59,7 +62,13 @@ body.not-found .lost-message,
 body.not-found .lost-detail p,
 body.not-found .back-link,
 body.not-found .footer,
-body.not-found .coordinates {
+body.not-found .coordinates,
+body.marcus-screensaver .marcus-subtitle,
+body.marcus-screensaver .marcus-philosophers,
+body.marcus-screensaver .marcus-download,
+body.marcus-screensaver .marcus-back,
+body.marcus-screensaver .footer,
+body.marcus-screensaver .coordinates {
   font-family: var(--font-sans);
 }
 
@@ -105,12 +114,14 @@ body.home .coordinates {
 }
 
 body.home #canvas,
-body.not-found #canvas {
+body.not-found #canvas,
+body.marcus-screensaver #canvas {
   opacity: 0.28;
 }
 
 body.home a:focus-visible,
-body.not-found a:focus-visible {
+body.not-found a:focus-visible,
+body.marcus-screensaver a:focus-visible {
   outline: 2px solid var(--fg);
   outline-offset: 3px;
   border-radius: 2px;
@@ -210,7 +221,14 @@ body.home .links a::after {
   body.not-found .lost-detail,
   body.not-found .back-link,
   body.not-found .footer,
-  body.not-found .coordinates {
+  body.not-found .coordinates,
+  body.marcus-screensaver h1,
+  body.marcus-screensaver .marcus-lede,
+  body.marcus-screensaver .marcus-actions,
+  body.marcus-screensaver .marcus-visual,
+  body.marcus-screensaver .marcus-back,
+  body.marcus-screensaver .footer,
+  body.marcus-screensaver .coordinates {
     animation: none !important;
     opacity: 1;
     transform: none;
@@ -222,7 +240,9 @@ body.home .links a::after {
 
   body.home .project-list a,
   body.home .links a,
-  body.not-found .back-link {
+  body.not-found .back-link,
+  body.marcus-screensaver .marcus-download,
+  body.marcus-screensaver .marcus-back {
     transition-duration: 0.01ms;
   }
 }
@@ -330,7 +350,9 @@ body.not-found .container {
 }
 
 body.not-found .footer,
-body.not-found .coordinates {
+body.not-found .coordinates,
+body.marcus-screensaver .footer,
+body.marcus-screensaver .coordinates {
   font-size: var(--text-caption);
   letter-spacing: var(--track-micro);
   line-height: 1.4;
