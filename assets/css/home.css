@@ -44,14 +44,23 @@ body.marcus-screensaver h1 {
   text-wrap: balance;
 }
 
+body.home .header {
+  margin-bottom: 1rem;
+}
+
+body.home .header h1 {
+  margin-bottom: 0.35rem;
+}
+
 body.home .projects h2 {
   line-height: var(--leading-subhead);
 }
 
 body.home .bio p,
 body.home .group-title,
-body.home .project-list a,
-body.home .project-meta,
+body.home .project-card,
+body.home .project-card__title,
+body.home .project-card__meta,
 body.home .links a,
 body.home .footer,
 body.home .coordinates {
@@ -87,16 +96,17 @@ body.home .bio p {
   color: color-mix(in srgb, var(--fg) 72%, var(--accent));
 }
 
-body.home .project-list a {
+body.home .project-card__title {
   font-size: var(--text-body);
   font-weight: 500;
   letter-spacing: 0.01em;
   line-height: var(--leading-subhead);
 }
 
-body.home .project-meta {
+body.home .project-card__meta {
   font-size: var(--text-small);
   line-height: 1.45;
+  color: var(--accent);
 }
 
 body.home .links a {
@@ -125,6 +135,10 @@ body.marcus-screensaver a:focus-visible {
   outline: 2px solid var(--fg);
   outline-offset: 3px;
   border-radius: 2px;
+}
+
+body.home a.project-card:focus-visible {
+  border-radius: 4px;
 }
 
 /* Skip link — keyboard / screen reader */
@@ -163,28 +177,45 @@ body.marcus-screensaver a:focus-visible {
   outline-offset: 2px;
 }
 
-/* Touch-friendly targets + interaction feedback */
-body.home .project-list a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.75rem;
-  padding: 0.35rem 0;
+/* Project cards — index */
+body.home .project-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0.65rem;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  padding: 0.35rem 0.25rem 0.5rem 0;
+  text-decoration: none;
+  color: var(--fg);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
   transition:
     color 0.2s cubic-bezier(0.19, 1, 0.22, 1),
     opacity 0.2s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-body.home .project-list a:hover {
-  color: color-mix(in srgb, var(--fg) 90%, #fff);
+body.home .project-card:hover {
+  color: color-mix(in srgb, var(--fg) 94%, #fff);
 }
 
-body.home .project-list a:active {
-  opacity: 0.82;
+body.home .project-card:active {
+  opacity: 0.88;
 }
 
-body.home .project-list a::after {
-  transition: transform 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+body.home .project-card__icon {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  object-fit: contain;
+  border-radius: 14px;
 }
+
+/* Touch-friendly targets + interaction feedback */
 
 body.home .links a {
   display: inline-flex;
@@ -238,7 +269,7 @@ body.home .links a::after {
     opacity: 0.12;
   }
 
-  body.home .project-list a,
+  body.home .project-card,
   body.home .links a,
   body.not-found .back-link,
   body.marcus-screensaver .marcus-download,
