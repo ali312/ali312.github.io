@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PicMatic - Hands-Free Interval Photos</title>
-  <meta name="description" content="PicMatic is an iPhone interval camera for creators, travelers, couples, and solo shooters who want natural photos without rushing back to the shutter.">
+  <title>PicMatic - Self Timer Camera</title>
+  <meta name="description" content="PicMatic is a minimal iPhone self timer camera that takes hands-free interval photos for solo shots, group photos, travel, family moments, and creators.">
   <link rel="stylesheet" href="assets/css/picmatic.css">
   <link rel="icon" href="assets/favicon_io/favicon.ico" sizes="48x48">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
@@ -15,80 +15,159 @@
 <body class="picmatic-page">
   <nav class="pm-nav">
     <div class="pm-shell pm-nav__inner">
-      <a href="/" class="pm-brand">Anton CGI</a>
-      <div class="pm-nav__links">
-        <a href="#workflow" class="pm-nav__link">How it works</a>
+      <a href="/" class="pm-brand" aria-label="Anton CGI home">
+        <img src="assets/icons/PicMatic%20Icon.png" alt="" class="pm-brand__icon">
+        <span>PicMatic</span>
+      </a>
+      <div class="pm-nav__links" aria-label="PicMatic navigation">
+        <a href="#how" class="pm-nav__link">How it works</a>
+        <a href="#privacy" class="pm-nav__link">Privacy</a>
+        <a href="https://apps.apple.com/nz/app/picmatic-self-timer-camera/id6759094233" class="pm-nav__link pm-nav__link--store" target="_blank" rel="noopener">App Store</a>
       </div>
     </div>
   </nav>
 
   <main>
-    <section class="pm-hero">
+    <section class="pm-hero" aria-labelledby="hero-title">
       <div class="pm-shell pm-hero__grid">
         <div class="pm-hero__copy" data-reveal>
-          <p class="pm-kicker">PicMatic for iPhone</p>
-          <h1 class="pm-display">Stay in the frame.</h1>
-          <p class="pm-lead">Set the phone down, choose an interval, and let PicMatic keep taking photos while you stay in the moment.</p>
+          <p class="pm-kicker">Self timer camera for iPhone</p>
+          <h1 class="pm-display" id="hero-title">No more sprinting back to the phone.</h1>
+          <p class="pm-lead">Set the frame, choose an interval, and let PicMatic take a run of photos while you stay in the shot.</p>
           <div class="pm-hero__actions">
-            <a href="https://apps.apple.com/nz/app/picmatic-self-timer-camera/id6759094233" class="pm-button" target="_blank" rel="noopener">Download on the App Store</a>
+            <a href="https://apps.apple.com/nz/app/picmatic-self-timer-camera/id6759094233" class="pm-button" target="_blank" rel="noopener">
+              Download on the App Store
+            </a>
+            <a href="#how" class="pm-text-link">See the flow</a>
           </div>
-          <div class="pm-proofline">
-            <span>No sign-in</span>
-            <span>On-device capture</span>
-            <span>Works offline</span>
-          </div>
+          <dl class="pm-hero__facts" aria-label="PicMatic facts">
+            <div>
+              <dt>Price</dt>
+              <dd>Free</dd>
+            </div>
+            <div>
+              <dt>Privacy</dt>
+              <dd>No data collected</dd>
+            </div>
+            <div>
+              <dt>Best for</dt>
+              <dd>Solo, group, travel</dd>
+            </div>
+          </dl>
         </div>
 
         <div class="pm-hero__visual" data-reveal>
-          <img src="PicMatic%20Screenshots/1.png" alt="PicMatic app showing interval photo capture" class="pm-hero__img">
+          <div class="pm-phone-stack" aria-label="PicMatic app screenshots">
+            <img src="PicMatic%20Screenshots/1.png" alt="PicMatic interval camera interface showing a 5 second timer" class="pm-phone-stack__screen pm-phone-stack__screen--back">
+            <img src="PicMatic%20Screenshots/2.png" alt="PicMatic app capturing hands-free photos" class="pm-phone-stack__screen pm-phone-stack__screen--front">
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="pm-section pm-section--workflow" id="workflow">
-      <div class="pm-shell pm-story">
-        <div class="pm-story__intro" data-reveal>
+    <section class="pm-photo-band" aria-label="Example photos captured with PicMatic">
+      <div class="pm-photo-band__track" data-reveal>
+        <figure class="pm-photo-frame pm-photo-frame--wide">
+          <img src="assets/images/picmatic/web/lady-city-1.png" alt="Woman posing naturally on a city street" loading="lazy" decoding="async">
+        </figure>
+        <figure class="pm-photo-frame">
+          <img src="assets/images/picmatic/web/lady-city-2.png" alt="Second city portrait from the same hands-free photo set" loading="lazy" decoding="async">
+        </figure>
+        <figure class="pm-photo-frame pm-photo-frame--tall">
+          <img src="assets/images/picmatic/web/lady-city-3.png" alt="Third city portrait from the same hands-free photo set" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </section>
+
+    <section class="pm-section pm-section--how" id="how" aria-labelledby="how-title">
+      <div class="pm-shell pm-how">
+        <div class="pm-section__intro" data-reveal>
           <p class="pm-kicker">How it works</p>
-          <h2 class="pm-title">Three steps, then you're in the shot.</h2>
+          <h2 class="pm-title" id="how-title">A tiny loop for better photos.</h2>
+          <p class="pm-copy">PicMatic turns one self timer into a full mini photoshoot. Move, reset, laugh, try another pose, and keep the frame alive.</p>
         </div>
 
-        <div class="pm-steps">
-          <article class="pm-step" data-reveal>
-            <span class="pm-step__index">01</span>
-            <h3>Place the phone</h3>
-            <p>Set it on a tripod, table, or ledge and frame the shot.</p>
+        <div class="pm-flow" data-reveal>
+          <article class="pm-flow__item">
+            <span class="pm-flow__index">01</span>
+            <h3>Set the frame</h3>
+            <p>Use a tripod, table, ledge, or phone stand. Compose once, then step away.</p>
           </article>
-          <article class="pm-step" data-reveal>
-            <span class="pm-step__index">02</span>
-            <h3>Pick the interval</h3>
-            <p>Choose how many seconds between each photo.</p>
+          <article class="pm-flow__item">
+            <span class="pm-flow__index">02</span>
+            <h3>Pick an interval</h3>
+            <p>Choose the rhythm between shots and use optional flash cues before each capture.</p>
           </article>
-          <article class="pm-step" data-reveal>
-            <span class="pm-step__index">03</span>
-            <h3>Walk away</h3>
-            <p>PicMatic keeps shooting while you stay in the scene.</p>
+          <article class="pm-flow__item">
+            <span class="pm-flow__index">03</span>
+            <h3>Keep the best</h3>
+            <p>Review the set afterwards and save the shots that actually worked.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="pm-section pm-section--gallery">
-      <div class="pm-gallery" data-reveal>
-        <img src="PicMatic%20Screenshots/1.png" alt="PicMatic shoots for you" class="pm-gallery__img">
-        <img src="PicMatic%20Screenshots/2.png" alt="Capture every pose" class="pm-gallery__img">
-        <img src="PicMatic%20Screenshots/3.png" alt="Get everyone in the frame" class="pm-gallery__img">
-        <img src="PicMatic%20Screenshots/4.png" alt="Choose your rhythm" class="pm-gallery__img">
-        <img src="PicMatic%20Screenshots/5.png" alt="Keep only the best shots" class="pm-gallery__img">
+    <section class="pm-section pm-section--use-cases" aria-labelledby="use-cases-title">
+      <div class="pm-shell pm-use-cases">
+        <div class="pm-capture-set" data-reveal aria-label="Hands-free group photo sequence">
+          <figure class="pm-capture-set__photo pm-capture-set__photo--one">
+            <img src="assets/images/picmatic/web/friends-hike-1.png" alt="Friends taking a hands-free group photo on a hike" loading="lazy" decoding="async">
+          </figure>
+          <figure class="pm-capture-set__photo pm-capture-set__photo--two">
+            <img src="assets/images/picmatic/web/friends-hike-2.png" alt="Second group photo from a PicMatic interval set" loading="lazy" decoding="async">
+          </figure>
+          <figure class="pm-capture-set__photo pm-capture-set__photo--three">
+            <img src="assets/images/picmatic/web/friends-hike-3.png" alt="Third group photo from a PicMatic interval set" loading="lazy" decoding="async">
+          </figure>
+        </div>
+        <div class="pm-use-cases__copy" data-reveal>
+          <p class="pm-kicker">Built for real shoots</p>
+          <h2 class="pm-title" id="use-cases-title">When asking a stranger breaks the moment.</h2>
+          <div class="pm-use-list">
+            <p>Travel photos without handing over your phone.</p>
+            <p>Group shots where nobody becomes the photographer.</p>
+            <p>Outfits, fitness progress, dance practice, kids, and family moments.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="pm-section pm-section--cta">
+    <section class="pm-section pm-section--screens" aria-labelledby="screens-title">
+      <div class="pm-shell">
+        <div class="pm-screens__header" data-reveal>
+          <p class="pm-kicker">Inside the app</p>
+          <h2 class="pm-title" id="screens-title">Simple controls, light and dark themes.</h2>
+        </div>
+      </div>
+      <div class="pm-screens" data-reveal>
+        <img src="PicMatic%20Screenshots/1.png" alt="PicMatic App Store screenshot with interval controls" class="pm-screens__img" loading="lazy" decoding="async">
+        <img src="PicMatic%20Screenshots/2.png" alt="PicMatic App Store screenshot showing hands-free photo capture" class="pm-screens__img" loading="lazy" decoding="async">
+        <img src="PicMatic%20Screenshots/3.png" alt="PicMatic App Store screenshot showing every pose captured" class="pm-screens__img" loading="lazy" decoding="async">
+        <img src="PicMatic%20Screenshots/4.png" alt="PicMatic App Store screenshot showing group photo use" class="pm-screens__img" loading="lazy" decoding="async">
+        <img src="PicMatic%20Screenshots/5.png" alt="PicMatic App Store screenshot showing photo review" class="pm-screens__img" loading="lazy" decoding="async">
+      </div>
+    </section>
+
+    <section class="pm-section pm-section--privacy" id="privacy" aria-labelledby="privacy-title">
+      <div class="pm-shell pm-privacy" data-reveal>
+        <div>
+          <p class="pm-kicker">Privacy</p>
+          <h2 class="pm-title" id="privacy-title">Your photos stay yours.</h2>
+        </div>
+        <p class="pm-copy">PicMatic does not require sign-in and the App Store listing states that the developer does not collect any data from the app. Photos are captured and saved on your device.</p>
+      </div>
+    </section>
+
+    <section class="pm-section pm-section--cta" aria-labelledby="cta-title">
       <div class="pm-shell">
         <div class="pm-cta" data-reveal>
-          <h2 class="pm-title">A simple interval camera for iPhone.</h2>
+          <div>
+            <p class="pm-kicker">PicMatic</p>
+            <h2 class="pm-title" id="cta-title">Start a hands-free photoshoot.</h2>
+          </div>
           <div class="pm-cta__actions">
             <a href="https://apps.apple.com/nz/app/picmatic-self-timer-camera/id6759094233" class="pm-button" target="_blank" rel="noopener">Download PicMatic</a>
-            <a href="mailto:ali312@yandex.ru?subject=PicMatic%20Feedback&amp;body=Hi%20Anton%2C%0A%0AI%20have%20feedback%20about%20PicMatic%3A%0A" class="pm-button pm-button--ghost">Contact</a>
+            <a href="mailto:antoncgi@icloud.com?subject=PicMatic%20Feedback&amp;body=Hi%20Anton%2C%0A%0AI%20have%20feedback%20about%20PicMatic%3A%0A" class="pm-button pm-button--ghost">Contact</a>
           </div>
         </div>
       </div>
@@ -121,7 +200,7 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.18 });
+      }, { threshold: 0.16 });
 
       document.querySelectorAll('[data-reveal]').forEach(function (el) {
         observer.observe(el);
