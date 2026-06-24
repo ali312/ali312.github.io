@@ -19,15 +19,15 @@
   <nav class="pm-nav">
     <div class="pm-shell pm-nav__inner">
       <a href="/" class="pm-brand" aria-label="Anton CGI home">
-        <img src="assets/icons/PicMatic%20Icon.png" alt="" class="pm-brand__icon">
+        <img src="assets/icons/PicMatic%20Icon.png" alt="" class="pm-brand__icon" width="1024" height="1024">
         <span>PicMatic</span>
       </a>
       <div class="pm-nav__links" aria-label="PicMatic navigation">
         <a href="#how" class="pm-nav__link">How it works</a>
         <a href="#privacy" class="pm-nav__link">Privacy</a>
-        <a href="https://apps.apple.com/nz/app/picmatic-self-timer-camera/id6759094233"
-          class="pm-nav__link pm-nav__link--store" target="_blank" rel="noopener">App Store</a>
       </div>
+      <a href="https://apps.apple.com/nz/app/picmatic-self-timer-camera/id6759094233"
+        class="pm-nav__link pm-nav__link--store" target="_blank" rel="noopener">App Store</a>
     </div>
   </nav>
 
@@ -38,35 +38,28 @@
           <h1 class="pm-display" id="hero-title">No more sprinting back to the phone.</h1>
           <p class="pm-lead">Set the frame, choose an interval, and let PicMatic take a run of photos while you stay in
             the shot.</p>
+          <div class="pm-hero__mobile-shot" aria-hidden="true">
+            <img src="PicMatic%20Screenshots/2.png" alt="" width="1242" height="2688" decoding="async"
+              fetchpriority="high">
+          </div>
           <div class="pm-hero__actions">
-            <a href="https://apps.apple.com/nz/app/picmatic-self-timer-camera/id6759094233" class="pm-button"
-              target="_blank" rel="noopener">
-              Download on the App Store
+            <a href="https://apps.apple.com/nz/app/picmatic-self-timer-camera/id6759094233" class="pm-app-store-badge"
+              target="_blank" rel="noopener" aria-label="Download PicMatic on the App Store">
+              <img src="assets/icons/download-on-the-app-store.svg" alt="Download on the App Store" width="120"
+                height="40">
             </a>
             <a href="#how" class="pm-text-link">See the flow</a>
           </div>
-          <dl class="pm-hero__facts" aria-label="PicMatic facts">
-            <div>
-              <dt>Price</dt>
-              <dd>Free</dd>
-            </div>
-            <div>
-              <dt>Privacy</dt>
-              <dd>No data collected</dd>
-            </div>
-            <div>
-              <dt>Best for</dt>
-              <dd>Solo, group, travel</dd>
-            </div>
-          </dl>
         </div>
 
         <div class="pm-hero__visual" data-reveal>
           <div class="pm-phone-stack" aria-label="PicMatic app screenshots">
             <img src="PicMatic%20Screenshots/1.png" alt="PicMatic interval camera interface showing a 5 second timer"
-              class="pm-phone-stack__screen pm-phone-stack__screen--back">
+              class="pm-phone-stack__screen pm-phone-stack__screen--back" width="1242" height="2688" decoding="async"
+              fetchpriority="high">
             <img src="PicMatic%20Screenshots/2.png" alt="PicMatic app capturing hands-free photos"
-              class="pm-phone-stack__screen pm-phone-stack__screen--front">
+              class="pm-phone-stack__screen pm-phone-stack__screen--front" width="1242" height="2688" decoding="async"
+              fetchpriority="high">
           </div>
         </div>
       </div>
@@ -76,15 +69,17 @@
       <div class="pm-photo-band__track" data-reveal>
         <figure class="pm-photo-frame pm-photo-frame--wide">
           <img src="assets/images/picmatic/web/lady-city-1.png" alt="Woman posing naturally on a city street"
-            loading="lazy" decoding="async">
+            width="1174" height="1574" loading="lazy" decoding="async">
         </figure>
         <figure class="pm-photo-frame">
           <img src="assets/images/picmatic/web/lady-city-2.png"
-            alt="Second city portrait from the same hands-free photo set" loading="lazy" decoding="async">
+            alt="Second city portrait from the same hands-free photo set" width="1174" height="1574" loading="lazy"
+            decoding="async">
         </figure>
         <figure class="pm-photo-frame pm-photo-frame--tall">
           <img src="assets/images/picmatic/web/lady-city-3.png"
-            alt="Third city portrait from the same hands-free photo set" loading="lazy" decoding="async">
+            alt="Third city portrait from the same hands-free photo set" width="1174" height="1574" loading="lazy"
+            decoding="async">
         </figure>
       </div>
     </section>
@@ -122,15 +117,18 @@
         <div class="pm-capture-set" data-reveal aria-label="Hands-free group photo sequence">
           <figure class="pm-capture-set__photo pm-capture-set__photo--one">
             <img src="assets/images/picmatic/web/friends-hike-1.png"
-              alt="Friends taking a hands-free group photo on a hike" loading="lazy" decoding="async">
+              alt="Friends taking a hands-free group photo on a hike" width="1174" height="1574" loading="lazy"
+              decoding="async">
           </figure>
           <figure class="pm-capture-set__photo pm-capture-set__photo--two">
             <img src="assets/images/picmatic/web/friends-hike-2.png"
-              alt="Second group photo from a PicMatic interval set" loading="lazy" decoding="async">
+              alt="Second group photo from a PicMatic interval set" width="1174" height="1574" loading="lazy"
+              decoding="async">
           </figure>
           <figure class="pm-capture-set__photo pm-capture-set__photo--three">
             <img src="assets/images/picmatic/web/friends-hike-3.png"
-              alt="Third group photo from a PicMatic interval set" loading="lazy" decoding="async">
+              alt="Third group photo from a PicMatic interval set" width="1174" height="1574" loading="lazy"
+              decoding="async">
           </figure>
         </div>
         <div class="pm-use-cases__copy" data-reveal>
@@ -152,15 +150,15 @@
       </div>
       <div class="pm-screens" data-reveal>
         <img src="PicMatic%20Screenshots/1.png" alt="PicMatic App Store screenshot with interval controls"
-          class="pm-screens__img" loading="lazy" decoding="async">
+          class="pm-screens__img" width="1242" height="2688" loading="lazy" decoding="async">
         <img src="PicMatic%20Screenshots/2.png" alt="PicMatic App Store screenshot showing hands-free photo capture"
-          class="pm-screens__img" loading="lazy" decoding="async">
+          class="pm-screens__img" width="1242" height="2688" loading="lazy" decoding="async">
         <img src="PicMatic%20Screenshots/3.png" alt="PicMatic App Store screenshot showing every pose captured"
-          class="pm-screens__img" loading="lazy" decoding="async">
+          class="pm-screens__img" width="1242" height="2688" loading="lazy" decoding="async">
         <img src="PicMatic%20Screenshots/4.png" alt="PicMatic App Store screenshot showing group photo use"
-          class="pm-screens__img" loading="lazy" decoding="async">
+          class="pm-screens__img" width="1242" height="2688" loading="lazy" decoding="async">
         <img src="PicMatic%20Screenshots/5.png" alt="PicMatic App Store screenshot showing photo review"
-          class="pm-screens__img" loading="lazy" decoding="async">
+          class="pm-screens__img" width="1242" height="2688" loading="lazy" decoding="async">
       </div>
     </section>
 
@@ -181,8 +179,11 @@
             <h2 class="pm-title" id="cta-title">Start a hands-free photoshoot.</h2>
           </div>
           <div class="pm-cta__actions">
-            <a href="https://apps.apple.com/nz/app/picmatic-self-timer-camera/id6759094233" class="pm-button"
-              target="_blank" rel="noopener">Download PicMatic</a>
+            <a href="https://apps.apple.com/nz/app/picmatic-self-timer-camera/id6759094233" class="pm-app-store-badge"
+              target="_blank" rel="noopener" aria-label="Download PicMatic on the App Store">
+              <img src="assets/icons/download-on-the-app-store.svg" alt="Download on the App Store" width="120"
+                height="40">
+            </a>
             <a href="mailto:antoncgi@icloud.com?subject=PicMatic%20Feedback&amp;body=Hi%20Anton%2C%0A%0AI%20have%20feedback%20about%20PicMatic%3A%0A"
               class="pm-button pm-button--ghost">Contact</a>
           </div>
