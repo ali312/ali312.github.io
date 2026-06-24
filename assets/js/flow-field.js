@@ -9,6 +9,9 @@
 
   const ctx = canvas.getContext('2d');
   const coords = document.getElementById('coords');
+  const styles = window.getComputedStyle(document.body);
+  const flowBackground = styles.getPropertyValue('--flow-bg-rgb').trim() || '10, 10, 10';
+  const flowTrail = styles.getPropertyValue('--flow-trail-rgb').trim() || '232, 232, 232';
   const calmBackground =
     document.body.classList.contains('home') ||
     document.body.classList.contains('not-found') ||
@@ -147,7 +150,7 @@
         const point = this.trail[i];
         const t = (i + 1) / count;
         const alpha = t * lifeAlpha;
-        ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+        ctx.fillStyle = `rgba(${flowTrail}, ${alpha})`;
         ctx.fillRect(point.x, point.y, 1.5, 1.5);
       }
     }
@@ -175,7 +178,7 @@
     }
 
     if (staticBackground) {
-      ctx.fillStyle = 'rgba(10, 10, 10, 1)';
+      ctx.fillStyle = `rgb(${flowBackground})`;
       ctx.fillRect(0, 0, width, height);
     }
 
@@ -188,7 +191,7 @@
     lastTime = currentTime;
     const dt = deltaTime / targetFrameTime;
 
-    ctx.fillStyle = 'rgba(10, 10, 10, 1)';
+    ctx.fillStyle = `rgb(${flowBackground})`;
     ctx.fillRect(0, 0, width, height);
 
     particles.forEach(p => {
