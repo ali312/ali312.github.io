@@ -21,8 +21,18 @@ const MAIN_DOMAIN_REDIRECTS = {
 
 function fetchAsset(env, path) {
   // Hostname is ignored by the ASSETS binding; only the path is used.
-  // Use a dummy host so internal fetches are not re-routed by this worker.
   return env.ASSETS.fetch(new Request(`https://assets.local${path}`));
+}
+
+function withPolaraCacheHeaders(response) {
+  const headers = new Headers(response.headers);
+  headers.set("Cache-Control", "public, max-age=0, must-revalidate");
+  headers.set("Vary", "Host");
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
 }
 
 export default {
@@ -37,7 +47,7 @@ export default {
 
       const rewritePath = POLARA_REWRITES[url.pathname];
       if (rewritePath) {
-        return fetchAsset(env, rewritePath);
+        return withPolaraCacheHeaders(await fetchAsset(env, rewritePath));
       }
 
       return env.ASSETS.fetch(request);
