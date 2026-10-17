@@ -2,20 +2,21 @@
 
 register: brand
 
-Anton CGI is the personal website for Anton, a design engineer at Termius who ships focused independent iOS and macOS projects. The homepage is a compact portfolio index, not a marketing funnel. It should make the visitor understand who Anton is, where he works, and what he has made with as little ceremony as possible.
+Anton CGI is the personal website for Anton Kuznetsov, a Software Engineer at Termius who builds independent iOS and macOS projects in Auckland. The homepage presents engineering first, with UX and design systems as a differentiator. Its main action is exploring projects.
 
 ## Audience
 
-Visitors are peers, recruiters, collaborators, and people who arrive from an app page looking for the maker. They should see a precise personal identity, clear project links, and a calm technical atmosphere.
+The primary audience is fellow makers: designers, engineers, and curious peers. App users and people with shared interests should also find the maker and his other products easily. This is a personal project showcase; omit hiring availability, service packages, résumé downloads, and sales CTAs.
 
 ## Brand
 
-The brand is sparse, exact, and quietly computational. It should feel like a designer-engineer workspace after hours: a dark canvas, fine motion, app icons, and restrained text. The site should avoid generic landing page patterns, oversized claims, decorative icon grids, and loud color.
+The brand is concise, curious, and crafted. Keep Anton CGI as the primary identity and introduce Anton Kuznetsov in the about section. Use midnight-charcoal/asphalt backgrounds, blue-gray text, and warm peach accents that match the Alpine Dawn scene, a bold personal introduction, generous surrounding whitespace, real project imagery, and factual copy. Use the large Anton CGI name, substantial skill chips, overlapping featured cards, and a restrained scrolling toolkit. Avoid filler slogans and sprawling marketing sections.
 
 ## Principles
 
-- Preserve the procedural flow-field identity on the index page.
-- Keep copy concise and factual.
-- Favor accessible, keyboard-friendly links over decorative controls.
-- Let app icons carry the visual project identity.
-- Polish should sharpen hierarchy and spacing without turning the page into a larger redesign.
+- Use the full-screen Alpine Dawn ASCII scene behind the page. Let it show through a full-height opening, with the background scene centered at 80% viewport height on every screen; transition into a full-width dark content surface below it. Preserve the scene’s proportions, keep the mountains and lake crisp, and make its ambient motion perceptible.
+- Lead with software engineering: Dart, Flutter, SwiftUI, and Rust; support it with UX design and design systems.
+- Present Claude Code and AI agent coursework as tools and exploration, without unverified accomplishments or metrics.
+- Feature Polara and PicMatic prominently; keep KiwiDrive, Somnia, and Marcus Screensaver easy to discover.
+- Use accessible, keyboard-friendly links, local assets, and responsive compositions.
+- Keep app pages, existing project destinations, and hosting behavior independent of homepage styling.
