@@ -131,7 +131,8 @@ img {
 }
 
 .portfolio-content > .shell,
-.site-footer > .shell {
+.site-footer > .shell,
+.site-header {
   width: min(1440px, calc(100% - clamp(3rem, 8vw, 10rem)));
 }
 
@@ -431,6 +432,10 @@ body:has(#alpine-dawn[data-motion="still"]) .tool-track { animation-play-state: 
   margin-bottom: var(--space-group);
 }
 
+.featured-grid + h2 {
+  margin-top: var(--space-section);
+}
+
 .featured-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -723,7 +728,7 @@ body:has(#alpine-dawn[data-motion="still"]) .tool-track { animation-play-state: 
   align-items: center;
   gap: .25rem 1rem;
   padding-block: 1.125rem;
-  transition: color .2s var(--ease), transform .2s var(--ease);
+  transition: color .2s var(--ease);
 }
 
 .project-row>img {
@@ -756,38 +761,24 @@ body:has(#alpine-dawn[data-motion="still"]) .tool-track { animation-play-state: 
   justify-self: end;
   color: var(--muted);
   font-size: 1rem;
-  transition: transform .2s var(--ease);
+  transition: color .2s var(--ease);
 }
 
-.project-row:hover {
-  color: var(--accent);
-  transform: translateX(4px);
-}
-
+.project-row:hover,
 .project-row:hover .row-arrow {
   color: var(--accent);
-  transform: translate(2px, -2px);
 }
 
-.skills, .about {
-  display: grid;
-  grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr);
-  column-gap: var(--content-gap);
-  align-items: start;
-}
-
-.skills > h2, .about > h2 { margin-bottom: 0; }
-.skills .tool-marquee { grid-column: 1 / -1; margin-top: 2.5rem; }
+.skills .tool-marquee { margin-top: 2.5rem; }
 
 .skill-groups {
   min-width: 0;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
 }
 
 .skill-group { min-width: 0; }
-.skill-group:last-child { grid-column: 1 / -1; }
 .skill-group h3 {
   margin-bottom: 1rem;
   color: var(--muted);
@@ -888,22 +879,14 @@ body:has(#alpine-dawn[data-motion="still"]) .tool-track { animation-play-state: 
   }
 }
 
-/* Sticky cards overlap naturally while scrolling, without scroll scripting. */
-@media (min-width: 1100px) and (min-height: 760px) and (prefers-reduced-motion: no-preference) {
-  .feature { position: sticky; top: 1.5rem; }
-  .feature:nth-child(1) { z-index: 1; }
-  .feature:nth-child(2) { top: 3rem; z-index: 2; }
-  .feature:focus-within { z-index: 3; }
-}
-
 @media (max-width: 760px) {
   .shell { width: calc(100% - 3rem); }
   .portfolio-content > .shell, .site-footer > .shell { width: calc(100% - 3rem); }
   .hero { padding-block: 7rem 1.5rem; gap: 2rem; }
   .section { padding-top: 3.5rem; }
-  .skills, .about { grid-template-columns: minmax(0, 1fr); row-gap: 1.5rem; }
   .skills .tool-marquee { margin-top: 1rem; }
-  .skill-groups { column-gap: 1.5rem; }
+  .skill-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 1.5rem; }
+  .skill-group:last-child { grid-column: 1 / -1; }
   .project-card { grid-template-columns: 1fr; min-height: 0; padding: 1.5rem; gap: 1.5rem; }
   .project-preview { grid-column: 1; grid-row: 2; }
   .project-caption { grid-column: 1; grid-row: 1; padding: 0; }
@@ -958,13 +941,8 @@ body:has(#alpine-dawn[data-motion="still"]) .tool-track { animation-play-state: 
   .tool-group[aria-hidden="true"] { display: none; }
 
   .project-card:hover .project-visit > span,
-  .hero-scroll:hover .icon,
-  .project-row:hover { transform: none; }
+  .hero-scroll:hover .icon { transform: none; }
   .polara-card:hover .polara-strip { transform: translateY(-50%); }
-
-  .project-row:hover .row-arrow {
-    transform: none;
-  }
 
   .picmatic-card:hover .picmatic-photo {
     transform: rotate(-9deg);
