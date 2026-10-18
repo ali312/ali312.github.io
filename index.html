@@ -29,8 +29,8 @@
   <header class="site-header shell" id="top">
     <a class="brand" href="#top" aria-label="Anton CGI — home">Anton CGI<span class="brand-dot"
         aria-hidden="true"></span></a>
-    <nav aria-label="Main navigation"><a href="#projects">Projects</a><a href="#skills">Skills</a><a
-        href="#about">About</a></nav>
+    <nav aria-label="Main navigation"><a href="#about">About</a><a href="#projects">Projects</a><a
+        href="#skills">Skills</a></nav>
   </header>
   <main id="main-content" tabindex="-1">
     <section class="hero" aria-labelledby="hero-title">
@@ -38,12 +38,24 @@
         <h1 id="hero-title"><span class="hero-greeting">Hi, I’m</span> <span class="hero-name">Anton CGI</span></h1>
         <p class="hero-subtitle">I design and build <span class="software">software.</span></p>
       </div>
-      <a class="hero-scroll" href="#projects">Explore projects <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a>
+      <a class="hero-scroll" href="#projects">Explore projects <svg class="icon" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 4v16m-6-6 6 6 6-6" />
+        </svg></a>
     </section>
     <div class="portfolio-content reading-surface">
       <div class="shell">
+        <section class="about section" id="about" aria-labelledby="about-title">
+          <h2 id="about-title">About</h2>
+          <p>I’m Anton Kuznetsov, a UX Designer and Software Engineer at <a href="https://termius.com/" target="_blank"
+              rel="noopener noreferrer">Termius</a> in Auckland. <br /> In my free time I build independent iOS and
+            macOS
+            apps
+            to explore new technologies and ideas.
+          </p>
+        </section>
         <section class="projects section" id="projects" aria-labelledby="projects-title">
-          <h2 id="projects-title">Side projects</h2>
+          <h2 id="projects-title">Featured side projects</h2>
           <div class="featured-grid">
             <article class="feature" aria-labelledby="polara-title">
               <a class="project-card polara-card" href="https://polara.antoncgi.com/" aria-labelledby="polara-title"
@@ -51,26 +63,35 @@
                 <div class="project-caption">
                   <div class="project-identity"><img src="assets/icons/Polara%20Icon.png" alt="" width="36" height="36"
                       loading="lazy">
-                    <div class="project-heading"><h3 id="polara-title">Polara</h3><span class="project-platform">iOS app</span></div>
+                    <div class="project-heading">
+                      <h3 id="polara-title">Polara</h3><span class="project-platform">iOS app</span>
+                    </div>
                   </div>
                   <p id="polara-description">Turn your photos into one seamless carousel.</p>
-                  <span class="project-visit" aria-hidden="true">Explore Polara <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span></span>
+                  <span class="project-visit" aria-hidden="true">Explore Polara <span><svg class="icon"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M6 18 18 6M6 6h12v12" />
+                      </svg></span></span>
                 </div>
                 <div class="project-preview">
                   <div class="project-art polara-art">
                     <div class="polara-strip">
                       <div class="strip-photo strip-photo-one"><img src="assets/images/portfolio/polara-1.webp"
                           alt="Three friends looking out over a mountain valley" width="640" height="636" loading="lazy"
-                          decoding="async"><span class="strip-caption" aria-hidden="true">a little out of office.</span></div>
+                          decoding="async"><span class="strip-caption" aria-hidden="true">a little out of office.</span>
+                      </div>
                       <div class="strip-photo strip-photo-two"><img src="assets/images/portfolio/polara-2.webp"
-                          alt="A favourite moment from the trip" width="640" height="636" loading="lazy" decoding="async">
+                          alt="A favourite moment from the trip" width="640" height="636" loading="lazy"
+                          decoding="async">
                       </div>
                       <div class="strip-photo strip-photo-three"><img src="assets/images/portfolio/polara-3.webp"
                           alt="Another memory from a weekend away" width="640" height="636" loading="lazy"
-                          decoding="async"><span class="strip-caption" aria-hidden="true">same time next weekend?</span></div>
+                          decoding="async"><span class="strip-caption" aria-hidden="true">same time next weekend?</span>
+                      </div>
                       <span class="strip-note" aria-hidden="true">wish you<br>were here.</span>
-                      <img class="strip-cat" src="assets/images/portfolio/polara-cat.webp" alt="" width="260" height="233"
-                        loading="lazy" decoding="async">
+                      <img class="strip-cat" src="assets/images/portfolio/polara-cat.webp" alt="" width="260"
+                        height="233" loading="lazy" decoding="async">
                       <span class="strip-date" aria-hidden="true">THE WEEKEND EDIT / 001</span>
                       <div class="strip-guides" aria-hidden="true"><span>01</span><span>02</span><span>03</span></div>
                     </div>
@@ -82,12 +103,18 @@
               <a class="project-card picmatic-card" href="PicMatic.html" aria-labelledby="picmatic-title"
                 aria-describedby="picmatic-description">
                 <div class="project-caption">
-                  <div class="project-identity"><img src="assets/icons/PicMatic%20Icon.png" alt="" width="36" height="36"
-                      loading="lazy">
-                    <div class="project-heading"><h3 id="picmatic-title">PicMatic</h3><span class="project-platform">iOS app</span></div>
+                  <div class="project-identity"><img src="assets/icons/PicMatic%20Icon.png" alt="" width="36"
+                      height="36" loading="lazy">
+                    <div class="project-heading">
+                      <h3 id="picmatic-title">PicMatic</h3><span class="project-platform">iOS app</span>
+                    </div>
                   </div>
                   <p id="picmatic-description">A hands-free camera. So you can be in the moment, too.</p>
-                  <span class="project-visit" aria-hidden="true">Explore PicMatic <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span></span>
+                  <span class="project-visit" aria-hidden="true">Explore PicMatic <span><svg class="icon"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M6 18 18 6M6 6h12v12" />
+                      </svg></span></span>
                 </div>
                 <div class="project-preview">
                   <div class="project-art picmatic-art">
@@ -102,19 +129,32 @@
               </a>
             </article>
           </div>
+          <h2 id="projects-title">Other side projects</h2>
           <ul class="project-list">
             <li><a class="project-row" href="KiwiDrive.html"><img src="assets/icons/Kiwi%20Drive%20Icon.png" alt=""
                   width="36" height="36" loading="lazy"><span class="project-row-name">KiwiDrive <span
                     class="platform">iOS</span></span><span class="project-row-description">NZ road code
-                  practice.</span><span class="row-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a></li>
+                  practice.</span><span class="row-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
+                    <path d="M6 18 18 6M6 6h12v12" />
+                  </svg></span></a></li>
             <li><a class="project-row" href="somnia.html"><img src="assets/icons/Somnia%20Icon.png" alt="" width="36"
                   height="36" loading="lazy"><span class="project-row-name">Somnia <span
                     class="platform">iOS</span></span><span class="project-row-description">Capture dreams. Find
-                  patterns.</span><span class="row-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a></li>
+                  patterns.</span><span class="row-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
+                    <path d="M6 18 18 6M6 6h12v12" />
+                  </svg></span></a></li>
             <li><a class="project-row" href="Marcus-Screensaver.html"><img src="assets/icons/Marcus%20Icon.png" alt=""
                   width="36" height="36" loading="lazy"><span class="project-row-name">Marcus Screensaver <span
                     class="platform">macOS</span></span><span class="project-row-description">Stoic quotes for your idle
-                  screen.</span><span class="row-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a></li>
+                  screen.</span><span class="row-arrow" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
+                    <path d="M6 18 18 6M6 6h12v12" />
+                  </svg></span></a></li>
           </ul>
         </section>
         <section class="skills section" id="skills" aria-labelledby="skills-title">
@@ -143,59 +183,86 @@
               </ul>
             </div>
             <div class="skill-group">
-              <h3 id="skill-group-2">Exploration</h3>
+              <h3 id="skill-group-2">AI</h3>
               <ul class="skill-tags" aria-labelledby="skill-group-2">
                 <li>Claude Code</li>
                 <li>Codex</li>
-                <li>AI agent coursework</li>
+                <li>Cursor</li>
               </ul>
             </div>
           </div>
           <div class="tool-marquee" role="region" aria-label="My toolkit">
             <div class="tool-track">
               <ul class="tool-group" aria-label="Design and development tools">
-                <li><img src="assets/icons/tools/dart.svg" alt="" width="44" height="44" loading="lazy"><span>Dart</span></li>
-                <li><img src="assets/icons/tools/flutter.svg" alt="" width="44" height="44" loading="lazy"><span>Flutter</span></li>
-                <li><img src="assets/icons/tools/swift.svg" alt="" width="44" height="44" loading="lazy"><span>Swift / SwiftUI</span></li>
-                <li><img src="assets/icons/tools/rust.svg" alt="" width="44" height="44" loading="lazy"><span>Rust</span></li>
-                <li><img src="assets/icons/tools/figma.svg" alt="" width="44" height="44" loading="lazy"><span>Figma</span></li>
-                <li><img src="assets/icons/tools/framer.svg" alt="" width="44" height="44" loading="lazy"><span>Framer</span></li>
-                <li><img src="assets/icons/tools/webflow.svg" alt="" width="44" height="44" loading="lazy"><span>Webflow</span></li>
-                <li><img src="assets/icons/tools/claude.svg" alt="" width="44" height="44" loading="lazy"><span>Claude Code</span></li>
-                <li><img src="assets/icons/tools/codex.svg" alt="" width="44" height="44" loading="lazy"><span>Codex</span></li>
+                <li><img src="assets/icons/tools/dart.svg" alt="" width="44" height="44"
+                    loading="lazy"><span>Dart</span></li>
+                <li><img src="assets/icons/tools/flutter.svg" alt="" width="44" height="44"
+                    loading="lazy"><span>Flutter</span></li>
+                <li><img src="assets/icons/tools/swift.svg" alt="" width="44" height="44" loading="lazy"><span>Swift /
+                    SwiftUI</span></li>
+                <li><img src="assets/icons/tools/rust.svg" alt="" width="44" height="44"
+                    loading="lazy"><span>Rust</span></li>
+                <li><img src="assets/icons/tools/figma.svg" alt="" width="44" height="44"
+                    loading="lazy"><span>Figma</span></li>
+                <li><img src="assets/icons/tools/framer.svg" alt="" width="44" height="44"
+                    loading="lazy"><span>Framer</span></li>
+                <li><img src="assets/icons/tools/webflow.svg" alt="" width="44" height="44"
+                    loading="lazy"><span>Webflow</span></li>
+                <li><img src="assets/icons/tools/claude.svg" alt="" width="44" height="44" loading="lazy"><span>Claude
+                    Code</span></li>
+                <li><img src="assets/icons/tools/codex.svg" alt="" width="44" height="44"
+                    loading="lazy"><span>Codex</span></li>
               </ul>
               <ul class="tool-group" aria-hidden="true">
-                <li><img src="assets/icons/tools/dart.svg" alt="" width="44" height="44" loading="lazy"><span>Dart</span></li>
-                <li><img src="assets/icons/tools/flutter.svg" alt="" width="44" height="44" loading="lazy"><span>Flutter</span></li>
-                <li><img src="assets/icons/tools/swift.svg" alt="" width="44" height="44" loading="lazy"><span>Swift / SwiftUI</span></li>
-                <li><img src="assets/icons/tools/rust.svg" alt="" width="44" height="44" loading="lazy"><span>Rust</span></li>
-                <li><img src="assets/icons/tools/figma.svg" alt="" width="44" height="44" loading="lazy"><span>Figma</span></li>
-                <li><img src="assets/icons/tools/framer.svg" alt="" width="44" height="44" loading="lazy"><span>Framer</span></li>
-                <li><img src="assets/icons/tools/webflow.svg" alt="" width="44" height="44" loading="lazy"><span>Webflow</span></li>
-                <li><img src="assets/icons/tools/claude.svg" alt="" width="44" height="44" loading="lazy"><span>Claude Code</span></li>
-                <li><img src="assets/icons/tools/codex.svg" alt="" width="44" height="44" loading="lazy"><span>Codex</span></li>
+                <li><img src="assets/icons/tools/dart.svg" alt="" width="44" height="44"
+                    loading="lazy"><span>Dart</span></li>
+                <li><img src="assets/icons/tools/flutter.svg" alt="" width="44" height="44"
+                    loading="lazy"><span>Flutter</span></li>
+                <li><img src="assets/icons/tools/swift.svg" alt="" width="44" height="44" loading="lazy"><span>Swift /
+                    SwiftUI</span></li>
+                <li><img src="assets/icons/tools/rust.svg" alt="" width="44" height="44"
+                    loading="lazy"><span>Rust</span></li>
+                <li><img src="assets/icons/tools/figma.svg" alt="" width="44" height="44"
+                    loading="lazy"><span>Figma</span></li>
+                <li><img src="assets/icons/tools/framer.svg" alt="" width="44" height="44"
+                    loading="lazy"><span>Framer</span></li>
+                <li><img src="assets/icons/tools/webflow.svg" alt="" width="44" height="44"
+                    loading="lazy"><span>Webflow</span></li>
+                <li><img src="assets/icons/tools/claude.svg" alt="" width="44" height="44" loading="lazy"><span>Claude
+                    Code</span></li>
+                <li><img src="assets/icons/tools/codex.svg" alt="" width="44" height="44"
+                    loading="lazy"><span>Codex</span></li>
               </ul>
             </div>
           </div>
-        </section>
-        <section class="about section" id="about" aria-labelledby="about-title">
-          <h2 id="about-title">About</h2>
-          <p>I’m Anton Kuznetsov, a software engineer at <a href="https://termius.com/" target="_blank" rel="noopener noreferrer">Termius</a> in Auckland. I build independent iOS and macOS apps, with a background in UX and design leadership.</p>
         </section>
       </div>
     </div>
   </main>
   <footer class="site-footer reading-surface">
     <div class="shell">
-    <nav aria-label="Elsewhere"><a href="https://github.com/ali312" target="_blank" rel="noopener noreferrer">GitHub
-        <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a><a href="https://www.linkedin.com/in/anton-kuznetsov-85b1b177/"
-        target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a><a
-        href="https://medium.com/@anton.cgi" target="_blank" rel="noopener noreferrer">Blog <span
-          aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a><a href="https://twitter.com/AntonCGI" target="_blank"
-        rel="noopener noreferrer">X <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a></nav>
-    <div class="footer-bottom"><span>© <span id="year">2026</span> Anton CGI</span>
-    </div>
-    <button class="scene-toggle" id="scene-toggle" type="button" aria-controls="alpine-dawn" hidden>Pause scene</button>
+      <nav aria-label="Elsewhere"><a href="https://github.com/ali312" target="_blank" rel="noopener noreferrer">GitHub
+          <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 18 18 6M6 6h12v12" />
+            </svg></span></a><a href="https://www.linkedin.com/in/anton-kuznetsov-85b1b177/" target="_blank"
+          rel="noopener noreferrer">LinkedIn <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <path d="M6 18 18 6M6 6h12v12" />
+            </svg></span></a><a href="https://medium.com/@anton.cgi" target="_blank" rel="noopener noreferrer">Blog
+          <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 18 18 6M6 6h12v12" />
+            </svg></span></a><a href="https://twitter.com/AntonCGI" target="_blank" rel="noopener noreferrer">X <span
+            aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 18 18 6M6 6h12v12" />
+            </svg></span></a></nav>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> Anton CGI</span>
+      </div>
+      <button class="scene-toggle" id="scene-toggle" type="button" aria-controls="alpine-dawn" hidden>Pause
+        scene</button>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
